@@ -1,0 +1,13 @@
+h1, p {
+	font-family: monospace;
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+#button {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
