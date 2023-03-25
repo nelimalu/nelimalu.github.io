@@ -1,0 +1,53 @@
+@font-face {
+	font-family: poppins;
+	src: url('../assets/fonts/Poppins-SemiBold.ttf') format("truetype");
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.cta {
+	font-family: poppins;
+	color: white;
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: 5%;
+}
+
+.cta-name {
+	line-height: 100%;
+	font-size: 8vw;
+}
+
+.cta-support {
+	font-family: roboto;
+	font-size: 2vw;
+	font-weight: normal;
+}
+
+.cta-description {
+	margin-top: 3%;
+	width: 50%;
+}
+
+.last-name {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+
+	background-clip: text;
+	-webkit-background-clip: text;
+    -moz-background-clip: text;
+	color: transparent;
+}

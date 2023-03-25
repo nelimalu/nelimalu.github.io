@@ -1,0 +1,84 @@
+:root {
+	--background: #141b25;
+	--text-colour: #ffffff;
+	--sub-text-colour: #d6d6d6;
+	--shadow-text-colour: #acafb0;
+	--accent: #5cc3d5;
+}
+
+@font-face {
+	font-family: roboto;
+	src: url('../assets/fonts/RobotoMono-Regular.ttf') format("truetype");
+}
+
+html {
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+}
+
+#background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index : -1;
+}
+
+.navbar {
+	position: absolute;
+	left: 0;
+	right: 0;
+	font-family: roboto;
+	display: flex;
+	justify-content: center;
+	color: var(--text-colour);
+	width: 100%;
+}
+
+.nav-button {
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+.nav-link {
+	color: var(--text-colour);
+	text-decoration: none;
+	text-shadow: 0px 0px 2px var(--text-colour);
+	transition-duration: .3s;
+}
+
+
+
+.nav-number {
+	font-size: 60%;
+	text-align: right;
+	margin: 0;
+	color: var(--sub-text-colour);
+	text-shadow: 0px 0px 2px var(--sub-text-colour);
+	transition-duration: .3s;
+}
+
+.nav-container {
+	display: flex;
+	margin-top: 2%;
+}
+
+.brand {
+	font-family: roboto;
+	justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    display: flex;
+    font-size: 125%;
+    padding-left: 2%;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.brand-brackets {
+	color: white;
+}
+
+.brand-link {
+	color: var(--accent);
+	text-decoration: none;
+}

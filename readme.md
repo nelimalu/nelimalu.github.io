@@ -1,2 +1,2 @@
 # todo
-[ ] create bibliography of all resources used 
+- [ ] create bibliography of all resources used 
