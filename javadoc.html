@@ -1,0 +1,167 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Luka Jovanovic - School</title>
+
+		<link rel="stylesheet" href="./styles/navbar.css">
+		<link rel="stylesheet" href="./styles/notes.css">
+	</head>
+	<body>
+		<!-- NAVBAR -->
+		<div class="nav-container">
+			<div class="brand">
+				<span>
+					<span class="brand-brackets">[</span>
+					<a class="brand-link" href="index.html">jovanovic</a>
+					<span class="brand-brackets">]</span>
+				</span>
+			</div>
+			<div class="navbar">
+
+				<div class="nav-button" onmouseleave="navExit(this)" onmouseenter="navEnter(this)">
+					<p class="nav-number">01</p>
+					<a class="nav-link" href="index.html">// home</a>
+				</div>
+				<div class="nav-button"  onmouseleave="navExit(this)" onmouseenter="navEnter(this)">
+					<p class="nav-number">02</p>
+					<a class="nav-link" href="experience.html">// experience</a>
+				</div>
+				<div class="nav-button"  onmouseleave="navExit(this)" onmouseenter="navEnter(this)">
+					<p class="nav-number">03</p>
+					<a class="nav-link" href="school.html">// school</a>
+				</div>
+				<div class="nav-button"  onmouseleave="navExit(this)" onmouseenter="navEnter(this)">
+					<p class="nav-number">04</p>
+					<a class="nav-link" href="contact.html">// contact</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="main-container">
+			<h1>[comp sci] / javadoc comments</h1>
+			<p>
+				Javadoc comments are html snippets that are used to summarize a class, method, or attribute
+				<br><br>
+				what a javadoc comment includes:
+				<ul>
+			    	<li>brief summary</li>
+			    	<li>parameters</li>
+			    	<li>return value</li>
+			   	</ul>
+			</p>
+			<h3>/Why do we use javadocs?</h3>
+			<p>
+				<b>Doc</b>umentation (where the <b>doc</b> comes from in java<b>doc</b>) is a very important part of code, and is used to help others use and understand code that you write.
+				<br>Usually, when someone makes a program, it will feature many classes with many methods. It’s not feasible for another programmer to go through your code and find the function of each method by looking at comments.<br>Documentation is a place where all methods and classes are summarized so programmers can easily find and use specific methods.
+				<br>Since documentation is a generally boring task, where you’ve finished writing the code and now you’re just writing descriptions and explanations of methods, the javadoc was made!
+				<br>Javadocs make it so that a programmer writing in Java can write their documentation as they’re writing their code, so they don’t have to do it later
+				<br>These javadoc comments can then be parsed by a fancy javadoc generator, and create your own documentation website for you
+				<br>The website aspect is the reason we can use html within our javadocs
+				<br>Essentially, for a small program with one or two files, javadocs are useless, but they are great practice for if you may write a large scale library in the future.
+			</p>
+			<h3>/Example of Documentation</h3>
+			<p>
+				<a href="https://docs.gl/gl2/glAccum">https://docs.gl/gl2/glAccum</a>
+				<br><br>OpenGL is a famous program used to create 3D graphics
+				<br>Usually, large programs such as this are actually a compilation of thousands of small programs which together are called a <b>library</b>
+				<br>In this example, we have a random method called <c>glAccum()</c> which is not a very descriptive name, and would be hard for a programmer to figure out what it’s used for
+				<br>Luckily, the documentation explains every aspect of this method
+				<br>It lists the parameters, return values, and how they’re used
+				<br>It also has a description to help you understand how this method is used, and when to use it
+			</p>
+
+			<h2>Writing a Javadoc Comment</h2>
+			<p>
+				A Javadoc comment is a multiline comment
+				<br>The first line has two asterisks *
+				<br>All following lines have an asterisk preceding the line
+
+			</p>
+			<br>Example:
+			<pre>
+/**
+ * this is an example javadoc comment 
+ */</pre>
+
+ 			<p>
+				Javadoc comments can also include html tags, because javadocs get compiled into HTML.
+				<br>This can be used to emphasize parts of a javadoc comment
+			</p>
+			<pre>
+/**
+ * &lt;h1&gt;This text is going to appear bigger&lt;/h1&gt;
+ * than this text
+ */</pre>
+
+ 			<h2>Javadoc for a class</h2>
+ 			<p>
+ 				Class javadocs are a more professional version of "four top line comments" taught in previous ICS classes.
+				<br>This comment summarizes the function of a class
+				<br>It also includes the author (your name), the date, as well as a version number.
+				<br>Put an @ symbol in front of your name and version number
+ 			</p>
+ 			<h3>/More on version numbers</h3>
+ 			<p>
+ 				Version numbers can be confusing, but if you’re writing a big program that you may be working on for months, every time you make a big change to your code you would change the version number.
+				<br>Think how minecraft (a java program) has version numbers like <c>1.0</c>, <c>1.8.9</c>, <c>1.19</c>, etc.
+				<br>It’s also common to have a version like <c>beta 1.0</c>
+				<br>Prefixes like <c>alpha</c> or <c>beta</c> are used to show a user that your program is not complete, and may have frequent bugs.
+ 			</p>
+ 			Example:
+ 			<pre>
+/**
+ * &lt;h1&gt;This text is going to appear bigger&lt;/h1&gt;
+ * than this text
+ */</pre>
+
+ 			<h2>Javadoc for a method</h2>
+ 			<p>
+ 				A method javadoc summarizes what a method is supposed to do.
+				<br>It specifies the parameters and the return value, with a short description for each.
+				<br>Remember to put an @ symbol in front of parameter and return
+ 			</p>
+ 			Example:
+ 			<pre>
+/**
+ * add method to easily add two numbers
+ * 
+ * @param a First integer to be added
+ * @param b Second integer to be added
+ * @return The sum of a and b
+ */
+public int add(int a, int b) {
+	return a + b;
+}</pre>
+
+			<h2>Javadoc for an attribute (field)</h2>
+			<p>
+				This is usually one line, and simply explains the use of the attribute.
+			</p>
+			Example:
+			<pre>
+/** The age of the person */
+private int age;</pre>
+		</div>
+ 
+<!--
+ <pre>
+/**
+ * This is an example javadoc comment for a class.
+ * Here you would normally explain what your class does, and when it's used
+ * 
+ * &lt;strong&gt;Course info:&lt;/strong&gt;
+ * ICS4U0 with V. Krasteva
+ * 
+ * @version 1.0
+ * @author Luka Jovanovic
+ * Created on 2023/02/18
+ */
+public class Binturong {
+	// all the code
+}</pre>
+-->
+		<script src="scripts/notes.js"></script>
+	</body>
+</html>

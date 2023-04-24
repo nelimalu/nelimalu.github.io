@@ -1,0 +1,62 @@
+@font-face {
+	font-family: D-DIN;
+	src: url('../assets/fonts/D-DIN.ttf') format("truetype");
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	100% {
+		background-position: 100% 50%;
+	}
+}
+
+@keyframes fadein{
+    0%{opacity:0;visibility:visible;}
+    100%{opacity:1;}
+}
+.fadein {
+    animation: fadein 1s;
+}
+
+html {
+	overflow: hidden;
+}
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab, #221e22, #141b25, #141b25);
+	background-size: 400% 400%;
+
+}
+
+.notes-container {
+	margin: 3%;
+	padding-top: 3%;
+	opacity: 0;
+}
+
+.note {
+	margin: auto;
+	margin-top: 1%;
+	width: 30%;
+	color: white;
+	font-family: D-DIN;
+	border: 1px solid white;
+	padding: 0.5rem;
+	transition-duration: .3s;
+}
+
+.note:hover {
+	background-color: white;
+}
+
+.note a {
+	color: white;
+	text-decoration: none;
+}
+
+.note:hover a {
+	color: black;
+}
+

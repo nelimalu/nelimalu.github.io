@@ -51,7 +51,7 @@ function createPrism() {
 	geometry.rotateY(rad(-45));
 	geometry.rotateX(rad(45))
 	geometry.translate(4, 0, 0);
-	
+
 	const cube = new THREE.Mesh(geometry, material);
 	scene.add(cube);
 }
@@ -92,7 +92,7 @@ class Prism {
 		this.material = new THREE.MeshLambertMaterial({ color: colour });
 		this.updatePosition();
 		this.updateAngles(angle.x, angle.y, angle.z);
-		
+
 		this.mesh = new THREE.Mesh(this.geometry, this.material);
 		scene.add(this.mesh);
 	}
@@ -107,14 +107,14 @@ class Prism {
 	}
 
 	updatePosition() {
-		this.geometry.dynamic = true;		
+		this.geometry.dynamic = true;
 		this.geometry.translate(this.position.x, this.position.y, this.position.z);
 		// this.geometry.verticesNeedUpdate = true;
 	}
 
 	hover() {
 		let angleChange = Math.sin((frame * this.frameOffset) / 100) / 50;
-		
+
 		this.updateAngles(angleChange / 2, angleChange, angleChange * 2);
 
 	}

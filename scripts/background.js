@@ -76,16 +76,3 @@ function renderFrame(){
     requestAnimationFrame( renderFrame );
 
 }
-
-Ammo().then( function( AmmoLib ) {
-
-  Ammo = AmmoLib;
-
-  Ammo.init();
-  Ammo.animate();
-
-} );
-
-setupPhysicsWorld();
-setupGraphics();
-renderFrame();

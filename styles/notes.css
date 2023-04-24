@@ -1,0 +1,52 @@
+@font-face {
+	font-family: D-DIN;
+	src: url('../assets/fonts/D-DIN.ttf') format("truetype");
+}
+
+body {
+	background: linear-gradient(#141b25, #221e22);
+}
+
+.main-container {
+	background-color: #11151c;
+	font-family: D-DIN;
+	color: white;
+	margin: 20%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	font-size: 110%;
+	padding-top: 2%;
+	padding-bottom: 3%;
+	padding-left: 5%;
+	padding-right: 5%;
+	border-radius: 10px;
+}
+
+h1 {
+	font-size: 250%;
+}
+
+h2, h3, h4 {
+	padding-left: 1%;
+}
+
+p {
+	padding-left: 3%;
+}
+
+c {
+	font-family: monospace;
+	padding: 5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	background-color: #1b222b;
+	border-radius: 5px;
+	color: #e31948;
+}
+
+pre {
+    padding: 5%;
+    background-color: #1b222b;
+    border-radius: 5px;
+    overflow-x: auto;
+}

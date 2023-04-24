@@ -1,0 +1,42 @@
+@font-face {
+	font-family: D-DIN;
+	src: url('../assets/fonts/D-DIN.ttf') format("truetype");
+}
+
+@font-face {
+	font-family: poppins;
+	src: url('../assets/fonts/Poppins-SemiBold.ttf') format("truetype");
+}
+
+body {
+	background: linear-gradient(#141b25, #221e22);
+}
+
+.main-container {
+	margin: 5%;
+}
+
+.panel {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 3%;
+	margin: 1%;
+	background-color: #11151c;
+	color: white;
+}
+
+.title {
+	font-family: poppins;
+}
+
+.description {
+	font-family: D-DIN;
+}
+
+img {
+	height: 100px;
+}
+
+.image-container {
+	float: right;
+}

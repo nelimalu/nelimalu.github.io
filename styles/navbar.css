@@ -16,6 +16,21 @@ html {
 	overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #212024;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #413f45;
+  border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:active {
+  background-color: #5e5d61;
+  border-radius: 20px;
+}
+
 #background {
 	position: absolute;
 	top: 0;
