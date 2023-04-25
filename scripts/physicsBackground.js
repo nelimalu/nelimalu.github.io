@@ -1,3 +1,8 @@
+function randint(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
 class RigidBody {
 
     setRestitution(val) {
@@ -41,19 +46,29 @@ class Box {
     constructor(scene, physicsWorld, position, size, mass, materialOptions, options, castShadow=true) {
         this.size = size;
         this.castShadow = castShadow;
+
+        let {map, ...removeMap } = materialOptions
         this.mesh = new THREE.Mesh(
             new THREE.BoxGeometry(size.width, size.height, size.length),
-            new THREE.MeshPhongMaterial(materialOptions)
+            [
+              new THREE.MeshPhongMaterial(removeMap),
+              new THREE.MeshPhongMaterial(removeMap),
+              new THREE.MeshPhongMaterial(removeMap),
+              new THREE.MeshPhongMaterial(removeMap),
+              new THREE.MeshPhongMaterial(materialOptions),
+              new THREE.MeshPhongMaterial(removeMap)
+            ]
         );
         this.mesh.position.set(position.x, position.y, position.z);
         this.mesh.castShadow = castShadow;
         this.mesh.receiveShadow = true;
 
+        
         if (castShadow) {
-            //this.mesh.quaternion.random();
+            
             this.lights = [];
             for (let i = 0; i < 5; i++) {
-                this.lights.push(new THREE.PointLight(0xffffff, 1, 50));
+                this.lights.push(new THREE.PointLight(0xffffff, 1, 100));
                 scene.add(this.lights[i]);
             }
 
@@ -66,7 +81,10 @@ class Box {
             ];
 
             this.updateLightPositions();
-        }
+        } 
+        else if (options.randomize)
+            this.mesh.quaternion.random();
+        
 
         scene.add(this.mesh);
 
@@ -122,6 +140,7 @@ class World {
         this.renderer.setPixelRatio(window.devicePixelRatio);
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         this.renderer.setClearColor(0x11151c);
+        this.raycaster = new THREE.Raycaster();
 
         const fov = 60;
         const aspect = window.innerWidth / window.innerHeight;
@@ -131,6 +150,25 @@ class World {
         this.camera.position.set(0, 30, 100);
 
         this.scene = new THREE.Scene();
+
+        window.addEventListener("mousedown", (event) => {
+            let mouse = new THREE.Vector2();
+            mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1,
+            mouse.y =  - ( event.clientY / window.innerHeight ) * 2 + 1,
+            this.raycaster.setFromCamera( mouse.clone(), this.camera );   
+
+            var objects = this.raycaster.intersectObjects(this.scene.children);
+            //console.log(objects);
+            
+            for (let obj of objects) {
+                if (obj.object.name === 'textbox!') {
+                    this.clickMeBox(10);
+                    break;
+                }
+            }
+            //if (objects.length > 0)
+            //    this.clickMeBox(10);
+        });
     }
 
     setup() {
@@ -148,40 +186,69 @@ class World {
         const box = new Box(
             this.scene,
             this.physicsWorld,
-            {x: 50, y: 120, z: 0},
+            {x: randint(20, 60), y: 120, z: randint(0, 20)},
             {length: 4, width: 4, height: 4},
             1,
             {
-                color: 0x808080, 
+                color: '#000000',
+                emissive: Math.random() > 0.5 ? 0xFFFFFF : 0x000000
             },
             {
                 restitution: 0.5,
                 friction: 10,
                 rollingFriction: 5,
-            }
+                randomize: true,
+            },
+            false
         );
 
         return box;
     }
 
-    generateTextBox(text, height) {
+    generateTextBox(text, colour, textcolour, position, size, lights=true) {
+        console.log(size.length);
+        var dynamictexture = new THREEx.DynamicTexture(1024, 512);
+        
+        dynamictexture.context.font = `${size.font}px monospace`;
+
+        dynamictexture.texture.needsUpdate = true;
+        dynamictexture.clear('#fff').drawText(text, undefined, 256 + (size.font / 3), textcolour);
+        
+
         const box = new TextBox(
             this.scene,
             this.physicsWorld,
-            {x: 50, y: height, z: 0},
-            {length: 20, width: 40, height: 20},
+            {x: position.x, y: position.y, z: position.z},
+            size,
             1,
             {
-                color: 0x808080, 
+                color: colour,
+                map: dynamictexture.texture,
             },
             {
                 restitution: 0.5,
-                friction: 10,
-                rollingFriction: 5,
-            }
+                friction: 1,
+                rollingFriction: 0,
+                randomize: false
+            },
+            lights
         );
 
+
         return box;
+    }
+
+    clickMeBox(z, lights=false) {
+        this.rigidBodies.push(this.generateTextBox(
+            "click me!",
+            '#eb387d', // box colour
+            '#de3333', // text colour
+            new THREE.Vector3(lights ? 50 : randint(30, 50), 150, z),
+            {length: 20, width: 40, height: 20, font: 150},
+            lights
+        ));
+
+        this.rigidBodies[this.rigidBodies.length - 1].mesh.name = "textbox!";
     }
 
     init() {
@@ -191,7 +258,7 @@ class World {
             this.scene,
             this.physicsWorld,
             {x: 0, y: 5, z: -30},
-            {length: 200, width: 250, height: 1},
+            {length: 500, width: 400, height: 1},
             0,
             {
                 color: 0x11151c, 
@@ -201,19 +268,35 @@ class World {
                 restitution: 0.5,
                 friction: 5,
                 rollingFriction: 0,
+                randomize: false
             },
             false
         );
 
         //const 
 
-        const spotLight = new THREE.PointLight( 0x8a3654, 3, 150);
-        spotLight.position.set( 0, 100, 0 );
-        this.scene.add( spotLight );
+        const light1 = new THREE.PointLight(0xffffff, 20, 250);
+        light1.position.set(0, 200, 30);
+        const light2 = new THREE.PointLight(0xffffff, 1, 300);
+        light2.position.set(0, 50, 200);
+
+        this.scene.add(light1);
+        this.scene.add(light2);
+
+
+        //const light = new THREE.AmbientLight( 0x404040 ); // soft white light
+        //this.scene.add( light );
 
         this.rigidBodies = [];
-        this.rigidBodies.push(this.generateTextBox("hello", 120));
-        this.rigidBodies.push(this.generateTextBox("hello", 200));
+        this.clickMeBox(3, true);
+        this.rigidBodies.push(this.generateTextBox(
+            "ICS4U0",
+            '#50a4d4',
+            '#549feb',
+            new THREE.Vector3(60, 150, 3),
+            {length: 20, width: 40, height: 20, font: 200}
+        ));
+        
         //for (let i = 0; i < 3; i++) {
         //    this.rigidBodies.push(this.generateBox());
         //}
@@ -230,7 +313,7 @@ class World {
             }
 
             if (t - this.timeSinceDrop > 2000) {
-                //this.rigidBodies.push(this.generateBox());
+                this.rigidBodies.push(this.generateBox());
                 this.timeSinceDrop = t;
             }
 
@@ -242,7 +325,7 @@ class World {
     }
 
     step(timeElapsed) {
-        this.physicsWorld.stepSimulation(timeElapsed * 0.0001, 10);
+        this.physicsWorld.stepSimulation(timeElapsed * 0.0001, 5);
 
         for (let i = 0; i < this.rigidBodies.length; i++) {
             this.rigidBodies[i].rigidBody.motionState.getWorldTransform(this.tempTransform);
@@ -266,6 +349,10 @@ var world;
 window.addEventListener('DOMContentLoaded', () => {
     Ammo().then((lib) => {
         Ammo = lib;
+
+        
+        
+
         world = new World();
     })
     
