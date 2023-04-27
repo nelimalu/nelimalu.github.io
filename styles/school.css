@@ -10,6 +10,8 @@ body {
 .notes-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	margin-top: 5%;
 }
 
 .note {
@@ -18,8 +20,6 @@ body {
 	display: flex;
 	align-items:center;
     justify-content:center;
-
-	margin: 3vw;
 	width: 10vw;
 	height: 10vw;
 	border: 5px solid white;
@@ -32,8 +32,9 @@ body {
 }
 
 .note-wrapper {
-	transform: translate(-10%, -10%);
-	transition: all 1s;
+	margin: 3vw;
+	transform: translate(0%, 0%);
+	transition: all .8s;
 }
 
 .note::before {
@@ -44,17 +45,18 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	transition: all 1s;
+	transition: all .8s;
 	border: 5px solid white;
 	background-color: #030405;
-	transform: translate(10%, 10%);
+	transform: translate(8%, 8%);
 	
 }
 
 .note-wrapper:hover {
-	transform: translate(10%, 10%);
+	transform: translate(8%, 8%);
+	cursor: pointer;
 }
 
 .note:hover::before {
-	transform: none;
+	transform: translate(-2%, -2%); /* 1/5 */
 }
