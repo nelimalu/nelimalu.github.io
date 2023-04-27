@@ -1,3 +1,60 @@
+@font-face {
+	font-family: poppins;
+	src: url('../assets/fonts/Poppins-SemiBold.ttf') format("truetype");
+}
+
 body {
 	background-image: linear-gradient(#141b25, #221e22);
+}
+
+.notes-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.note {
+	font-family: poppins;
+	
+	display: flex;
+	align-items:center;
+    justify-content:center;
+
+	margin: 3vw;
+	width: 10vw;
+	height: 10vw;
+	border: 5px solid white;
+	
+	position: relative;
+	
+	background-color: #f3b1cd;
+	color: white;
+
+}
+
+.note-wrapper {
+	transform: translate(-10%, -10%);
+	transition: all 1s;
+}
+
+.note::before {
+	z-index: -1;
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: all 1s;
+	border: 5px solid white;
+	background-color: #030405;
+	transform: translate(10%, 10%);
+	
+}
+
+.note-wrapper:hover {
+	transform: translate(10%, 10%);
+}
+
+.note:hover::before {
+	transform: none;
 }
