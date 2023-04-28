@@ -30,9 +30,10 @@ body {
 .about-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
+	margin-top: 3%;
 }
 
-.about-section {
+.summary-section {
 	font-family: monospace;
 	color: white;
 	font-size: 1.3vw;
@@ -43,3 +44,23 @@ body {
 .green { color: #84c82a; }
 .yellow { color: #e7db74; }
 .purple { color: #9477f9; }
+.arial { font-family: arial; }
+
+.about-image-logo {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.image-container {
+	width: 50%;
+	overflow: hidden;
+}
+
+#photo {
+	width: 100%;
+	clip-path: circle(50%);
+	filter: drop-shadow(0px 0px 10px #ffffff);
+
+}
