@@ -1,22 +1,29 @@
+const FONT_SIZE = 70;
+const MESSAGES = [
+	"Welcome!",
+	"These are my AP Notes.",
+	"Feel free to use them.",
+	"(Krasteva give good mark pls <3)",
+];
 
-window.addEventListener('DOMContentLoaded', (event) => {
+function createMessage(message) {
+
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
 	const skipAnimation = urlParams.get('skip');
-	let font_size = 70;
 
 	let v = new Vara("#handwritten","https://raw.githubusercontent.com/akzhy/Vara/master/fonts/Satisfy/SatisfySL.json",
 		[{
-			text: "Loading AP Notes",
-			y: window.innerHeight / 2 - font_size * 2,
+			text: message,
+			y: 20,
 			fromCurrentPosition: {y: false, x: false},
-			duration: skipAnimation ? 0 : 5000,  // 5000
+			duration: 217 * message.length,  // 5000
 			letterSpacing: -5
 		}],
 		{
 			color: "#fff",
 			strokeWidth: 2,
-			fontSize: font_size,
+			fontSize: FONT_SIZE,
 			textAlign: "center"
 		}
 	);
@@ -31,6 +38,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 				o.container.style.transition = "opacity 1s 0.5s";  // 1s 1s
 				o.container.style.opacity = 0;
 			}
+
 
 			/*
 			body = document.getElementsByTagName('body')[0];
@@ -67,9 +75,26 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		})
 
 		
-	});});
+	});
+}
 
 
+window.addEventListener('DOMContentLoaded', (event) => {
+	let currentIndex = 0;
+
+	animate = () => {
+		document.getElementById("handwritten").innerHTML = "";
+	    createMessage(MESSAGES[currentIndex]);
+	    currentIndex++;
+	    currentIndex %= MESSAGES.length;
+
+	    setTimeout(animate, (217 * MESSAGES[currentIndex - 1 < 0 ? MESSAGES.length - 1 : currentIndex - 1].length) + 1500);
+	}
+
+	animate();
+});
+
+/*
 var canvas = document.getElementById("background");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -120,11 +145,6 @@ function now() {
 	//return Date.now();
 	return scrollCounter;
 }
-
-/*
-Colours:
-regular gradient: rgba(20, 27, 37, 1) -> rgba(34, 30, 34, 0.9)
-*/
 
 class Colour {
 	constructor(r, g, b) {
@@ -235,3 +255,4 @@ function animate() {
 	c.fillRect(0, -(scrollCounter / SCROLL_RATE * 25), canvas.width, canvas.height);
 }
 animate();
+*/

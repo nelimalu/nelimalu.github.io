@@ -7,16 +7,23 @@ body {
 	background-image: linear-gradient(#141b25, #221e22);
 }
 
+.handwritten-container {
+	margin-top: 5%;
+	height: 10%;
+}
+
 .notes-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
-	margin-top: 5%;
+	margin: 5%;
+	margin-top: 0;
 }
 
 .note {
 	font-family: poppins;
-	
+	font-size: 1vw;
+	text-align: center;
 	display: flex;
 	align-items:center;
     justify-content:center;
@@ -28,6 +35,38 @@ body {
 	
 	background-color: #f3b1cd;
 	color: white;
+}
+
+.note-text {
+	color: #ffffff;
+	text-shadow: 0px 0px 2px #383d4f;
+	position: relative;
+	z-index: 1;
+}
+
+.note-text::after {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	background: linear-gradient(to top, #383d4f 50%, transparent 50%);
+	animation-name: highlight;
+	animation-duration: 1.5s;
+}
+
+
+@keyframes highlight {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    width: 100%;
+  }
 
 }
 
@@ -35,6 +74,7 @@ body {
 	margin: 3vw;
 	transform: translate(0%, 0%);
 	transition: all .8s;
+
 }
 
 .note::before {
@@ -49,7 +89,7 @@ body {
 	border: 5px solid white;
 	background-color: #030405;
 	transform: translate(8%, 8%);
-	
+	box-shadow: 0px 0px 100px 30px rgba(255, 255, 255, 0.3);
 }
 
 .note-wrapper:hover {
@@ -60,3 +100,44 @@ body {
 .note:hover::before {
 	transform: translate(-2%, -2%); /* 1/5 */
 }
+
+/*************/
+/*  COLOURS  */
+/*************/
+
+
+.pink { background-color: #f3b1cd; }
+.pink::before { background-color: #c983a1; }
+
+.light-pink { background-color: #f8d7e8; }
+.light-pink::before { background-color: #d4aec1; }
+
+.blue { background-color: #bad5f0; }
+.blue::before { background-color: #8aa6c2; }
+
+.light-blue { background-color: #d6eff6; }
+.light-blue::before { background-color: #a3c3cc; }
+
+.beige { background-color: #f8efe6; }
+.beige::before { background-color: #c9baab; }
+
+.banana { background-color: #fae4cd; }
+.banana::before { background-color: #cfb397; }
+
+.brown { background-color: #f0d5ba; }
+.brown::before { background-color: #c7a98b; }
+
+.purple { background-color: #e3a7c0; }
+.purple::before { background-color: #b87f96; }
+
+.navy { background-color: #b0abcb; }
+.navy::before { background-color: #8882ab; }
+
+.green { background-color: #c2d5a8; }
+.green::before { background-color: #96ab79; }
+
+.yellow { background-color: #f2e9cc; }
+.yellow::before { background-color: #c2b793; }
+
+.cyan { background-color: #a5d5d5; }
+.cyan::before { background-color: #74a6a6; }
