@@ -12,9 +12,9 @@ addEventListener("DOMContentLoaded", (event) => {
 				   "#a5de2a": ["break", "case", "catch", "continue", "default", "do", "else",
 "finally", "for", "goto", "if", "switch", "try", "while"],
 				   "#a5de2a": ["boolean", "byte", "char", "double", "enum", "float", "int",
-"long", "short", "String", "void"]
+"long", "short", "String", "void"],
+                    "orange": ["+", "-", "*", "/", "&", "|", "^", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 				  };
-
     
 
     codeblocks.forEach(code => {

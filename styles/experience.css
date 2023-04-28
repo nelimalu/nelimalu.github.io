@@ -16,27 +16,30 @@ body {
 	margin: 5%;
 }
 
-.panel {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	padding: 3%;
-	margin: 1%;
-	background-color: #11151c;
-	color: white;
-}
-
 .title {
 	font-family: poppins;
+	font-size: 200%;
+	color: white;
+	text-align: center;
 }
 
-.description {
-	font-family: D-DIN;
+#title-text {
+	color: #5cc3d5;
 }
 
-img {
-	height: 100px;
+.about-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 }
 
-.image-container {
-	float: right;
+.about-section {
+	font-family: monospace;
+	color: white;
+	font-size: 1.3vw;
 }
+
+.red { color: #e32547; }
+.blue { color: #5dccdb; }
+.green { color: #84c82a; }
+.yellow { color: #e7db74; }
+.purple { color: #9477f9; }
