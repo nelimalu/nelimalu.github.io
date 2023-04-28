@@ -4,7 +4,8 @@
 }
 
 body {
-	background: linear-gradient(#141b25, #221e22);
+	/*background: linear-gradient(#141b25, #221e22);*/
+	background-color: #141b25;
 }
 
 .main-container {

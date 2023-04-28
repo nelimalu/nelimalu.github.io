@@ -5,13 +5,13 @@
 addEventListener("DOMContentLoaded", (event) => {
     const codeblocks = document.querySelectorAll('pre');
 
-    let colours = {"red": ["abstract", "assert", "class", "const", "extends", "false", "final",
+    let colours = {"#f6245c": ["abstract", "assert", "class", "const", "extends", "false", "final",
 						"implements", "import", "instanceof", "interface", "native", "new", "null", "package",
 						"private", "protected", "public", "return", "static", "strictfp", "super", "synchronized",
 						"System", "this", "throw", "throws", "transient", "true", "volatile"],
-				   "green": ["break", "case", "catch", "continue", "default", "do", "else",
+				   "#a5de2a": ["break", "case", "catch", "continue", "default", "do", "else",
 "finally", "for", "goto", "if", "switch", "try", "while"],
-				   "blue": ["boolean", "byte", "char", "double", "enum", "float", "int",
+				   "#a5de2a": ["boolean", "byte", "char", "double", "enum", "float", "int",
 "long", "short", "String", "void"]
 				  };
 

@@ -84,7 +84,7 @@ function generateOrbs(amount) {
 var orbs = generateOrbs(1);
 
 function animate() {
-    window.requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
     canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
 
