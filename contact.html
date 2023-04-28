@@ -44,20 +44,22 @@
 
 			<div id="main-container">
 				<div id="title">
-					Hi 👋 What's your name?
+					Hello 👋 What's your name?
 				</div>
 
 				<div id="input-area">
 					<input type='text' class="input-text" id="input" autocomplete="off" placeholder="John Smith...">
 				</div>
 
-				<div id="next-container">
-					<button id="next"><div>➡</div></button>
+				<div class="buttons-container">
+					<button class="button disable" id="prev" onclick="prev()"><div>⬅</div></button>
+					<button class="button" id="next" onclick="next()"><div>➡</div></button>
 				</div>
 			</div>
 		</div>
 
 		<script src="scripts/contact.js"></script>
+		<script src="scripts/contactBackground.js"></script>
 		<script src="scripts/navbar.js"></script>
 	</body>
 </html>
