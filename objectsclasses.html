@@ -48,96 +48,235 @@
 			</p>
 			<h3>/What is a class?</h3>
 			<p>
-				<b>Doc</b>umentation (where the <b>doc</b> comes from in java<b>doc</b>) is a very important part of code, and is used to help others use and understand code that you write.
-				<br>Usually, when someone makes a program, it will feature many classes with many methods. It’s not feasible for another programmer to go through your code and find the function of each method by looking at comments.<br>Documentation is a place where all methods and classes are summarized so programmers can easily find and use specific methods.
-				<br>Since documentation is a generally boring task, where you’ve finished writing the code and now you’re just writing descriptions and explanations of methods, the javadoc was made!
-				<br>Javadocs make it so that a programmer writing in Java can write their documentation as they’re writing their code, so they don’t have to do it later
-				<br>These javadoc comments can then be parsed by a fancy javadoc generator, and create your own documentation website for you
-				<br>The website aspect is the reason we can use html within our javadocs
-				<br>Essentially, for a small program with one or two files, javadocs are useless, but they are great practice for if you may write a large scale library in the future.
+				A class is a template for an object
+				<br>it will specify what attributes something you’re trying to code will have
+				<br>for example, a dog will have a set of attributes including
+				<ul>
+					<li>name</li>
+					<li>breed</li>
+					<li>age</li>
+				</ul>
+				<p>To give these attributes specific values, we need to create an object</p>
 			</p>
-			<h3>/Example of Documentation</h3>
+			<h3>/What is an object?</h3>
 			<p>
-				<a href="https://docs.gl/gl2/glAccum">https://docs.gl/gl2/glAccum</a>
-				<br><br>OpenGL is a famous program used to create 3D graphics
-				<br>Usually, large programs such as this are actually a compilation of thousands of small programs which together are called a <b>library</b>
-				<br>In this example, we have a random method called <c>glAccum()</c> which is not a very descriptive name, and would be hard for a programmer to figure out what it’s used for
-				<br>Luckily, the documentation explains every aspect of this method
-				<br>It lists the parameters, return values, and how they’re used
-				<br>It also has a description to help you understand how this method is used, and when to use it
+				An object is a specific <b>instance</b> of a class
+				<br>a common analogy is a cookie cutter
+				    <br>a cookie cutter has a shape, and each cookie made from the cookie cutter will have that same shape, but they are each individual cookies (or objects)
+				<br>When we create an object, we can give each attribute a specific value
+				<br>for example, using the attributes from above
+				<ul>
+					<li>name = Randall</li>
+					<li>breed = Husky</li>
+					<li>age = 6</li>
+				</ul>
+				<p>we can create as many objects (individual dogs with specific attributes) as we want from a class (the template of the dog, outlining that it will have a name, breed, and age)</p>
 			</p>
 
-			<h2>Writing a Javadoc Comment</h2>
+			<h2>How to write a class</h2>
 			<p>
-				A Javadoc comment is a multiline comment
-				<br>The first line has two asterisks *
-				<br>All following lines have an asterisk preceding the line
-
-			</p>
-			<br>Example:
-			<pre>
-/**
- * this is an example javadoc comment 
- */</pre>
-
- 			<p>
-				Javadoc comments can also include html tags, because javadocs get compiled into HTML.
-				<br>This can be used to emphasize parts of a javadoc comment
+				here is an example of a class using the dog example above
 			</p>
 			<pre>
-/**
- * &lt;h1&gt;This text is going to appear bigger&lt;/h1&gt;
- * than this text
- */</pre>
-
- 			<h2>Javadoc for a class</h2>
- 			<p>
- 				Class javadocs are a more professional version of "four top line comments" taught in previous ICS classes.
-				<br>This comment summarizes the function of a class
-				<br>It also includes the author (your name), the date, as well as a version number.
-				<br>Put an @ symbol in front of your name and version number
- 			</p>
- 			<h3>/More on version numbers</h3>
- 			<p>
- 				Version numbers can be confusing, but if you’re writing a big program that you may be working on for months, every time you make a big change to your code you would change the version number.
-				<br>Think how minecraft (a java program) has version numbers like <c>1.0</c>, <c>1.8.9</c>, <c>1.19</c>, etc.
-				<br>It’s also common to have a version like <c>beta 1.0</c>
-				<br>Prefixes like <c>alpha</c> or <c>beta</c> are used to show a user that your program is not complete, and may have frequent bugs.
- 			</p>
- 			Example:
- 			<pre>
-/**
- * &lt;h1&gt;This text is going to appear bigger&lt;/h1&gt;
- * than this text
- */</pre>
-
- 			<h2>Javadoc for a method</h2>
- 			<p>
- 				A method javadoc summarizes what a method is supposed to do.
-				<br>It specifies the parameters and the return value, with a short description for each.
-				<br>Remember to put an @ symbol in front of parameter and return
- 			</p>
- 			Example:
- 			<pre>
-/**
- * add method to easily add two numbers
- * 
- * @param a First integer to be added
- * @param b Second integer to be added
- * @return The sum of a and b
- */
-public int add(int a, int b) {
-	return a + b;
+public class Dog {
+	String name;
+	String breed;
+	int age;
 }</pre>
 
-			<h2>Javadoc for an attribute (field)</h2>
-			<p>
-				This is usually one line, and simply explains the use of the attribute.
+ 			<p>
+				<br>To create an object of the Dog class, and give the dog a specific name, breed and age, we need a <b>constructor.</b>
+			    <br>A constructor is a unique method that called when a new object is being created.
+			    <br>It is always public, has no return type, and has the same name as the class (case sensitive)
+				<br>Here is an example of a constructor for the dog class
 			</p>
-			Example:
 			<pre>
-/** The age of the person */
-private int age;</pre>
+public class Dog {
+	String name;
+	String breed;
+	int age;
+
+	public Dog(String n, String b, int a) {
+		name = n;
+		breed = b;
+		age = a;
+	}
+}</pre>
+			<p>
+				For each attribute of the class, a parameter is added to the constructor
+				<br>make sure that the name of the parameter is different from the name of the attribute
+				<br>in the future we can use the <c>this</c> keyword to avoid this naming issue
+			</p>
+
+ 			<h2>How to create an object</h2>
+
+ 			<p>
+				for most programs, we will have a separate driver class with a main method
+				<br>a driver class usually only has one method, which is the main method
+				<br>this is where the code will begin executing
+				<br>Here is an example of a driver class
+			</p>
+
+<pre>
+public class Driver {
+	public static void main(String[] args) {
+		System.out.println("hello!");
+	}
+}
+</pre>
+
+			<p>
+				<br>The driver class must be saved in the same folder as your other class, in this example, the Dog class
+				<br>Here is an example of your file structure
+			</p>
+
+<pre>
+DogProject
+├── Driver.java
+└── Dog.java
+</pre>
+
+			<p>
+				<br>We will create a dog object within the driver class
+				<br>Here is an example of creating an object
+			</p>
+
+<pre>
+public class Driver {
+	public static void main(String[] args) {
+
+		Dog my_dog_object = new Dog("Randall", "Husky", 6);
+
+	}
+}
+</pre>
+
+			<p>
+				notice that `Dog` is being used as a data type of this variable
+			    <br>this is a very important concept to understand: ***classes are essentially just data types***
+			    <br>the variable `my_dog_object` is a variable of type `Dog`
+				<br>To create a new object (an **instance** of the dog class), we use the `new` keyword
+				<br>We then write the name of the class, and in brackets, write all the parameters of the constructor
+				<br>notice that in the constructor written above, we specified the following:
+			</p>
+
+<pre>
+public Dog(String n, String b, int a) {  // pay attention to the order of
+	name = n;                            // parameters here
+	breed = b;
+	age = a;
+}
+</pre>
+
+			<p>
+				the order in which we wrote the parameters in the constructor is the order in which we enter the values of the attributes when we create a new object
+				<br>In this example, the order is `name` , `breed` , `age`
+				<br>This is why when we create the object, we do `new Dog("Randall", "Husky", 6)`
+				<br>we can also create multiple objects from the same class
+			</p>
+
+			<h2>Manipulating objects</h2>
+			<p>
+				we already saw how objects have attributes
+				<br>objects can also have methods
+				<br>methods are blocks of code that manipulate the attributes of an object
+				<br>To understand how methods work, let’s consider another example: a bank account
+			</p>
+<pre>
+public class BankAccount {
+	String accountName;
+	double balance;
+	double interestRate;
+}
+</pre>
+			
+			<p>
+				a bank account may have some functions, like depositing money, withdrawing money, or applying interest
+				<br>we can create a method for each of these
+			</p>
+
+<pre>
+public class BankAccount {
+	String accountName;
+	double balance;
+	double interestRate;
+
+	// constructor
+	public BankAccount(String a, double b, double i) {
+		accountName = a;
+		balance = b;
+		interestRate = i;
+	}
+
+	public void withdraw(double amount) {
+		balance -= amount;  // subtract the amount from the balance
+	}
+
+	public void deposit(double amount) {
+		balance += amount;  // add the amount to the balance
+	}
+
+	public void applyInterest() {
+		balance *= (1 + interestRate);  // add one so it increases by the interest amount
+	}
+}
+</pre>
+			
+			<p>
+				now let’s create some objects (or instances) of the BankAccount
+				<br>We can print the attributes of specific objects by using `.`
+			</p>
+
+<pre>
+public class Driver {
+	public static void main(String[] args) {
+
+		// bank account with name luka, $100 in the bank, and 5% interest rate
+		BankAccount LukaAccount = new BankAccount("Luka", 100, 0.05);
+		// bank account with name Krasteva, $153.67 in the bank, and 2% interest rate
+		BankAccount KrastevaAccount = new BankAccount("Krasteva", 153.67, 0.02);
+
+		System.out.println(LukaAccount.accountName);
+		System.out.println(KrastevaAccount.balance);
+	}
+}
+
+/*
+OUTPUT
+
+Luka
+153.67
+*/
+</pre>
+
+			to run methods of an object, we simply use `.methodName()` and add any parameters in the brackets
+
+<pre>
+public class Driver {
+	public static void main(String[] args) {
+		BankAccount LukaAccount = new BankAccount("Luka", 100.0, 0.05);
+		BankAccount KrastevaAccount = new BankAccount("Krasteva", 153.67, 0.02);
+
+		System.out.println(LukaAccount.balance);
+		LukaAccount.deposit(25.0);
+		System.out.println(LukaAccount.balance);
+		System.out.println(KrastevaAccount.balance);
+	}
+}
+
+/*
+OUTPUT
+
+100.0
+125.0
+153.67
+*/
+</pre>
+			<p>
+				this may be kind of obvious, but notice how running .deposit on Luka’s account does not affect the balance of Krasteva’s account, even though they are objects of the same class
+				<br>you can probably imagine how the other methods work
+				<br>hopefully you understand all that! if not, try watching youtube videos on the topic can confirm they explain very well
+			</p>
 		</div>
  
 <!--
