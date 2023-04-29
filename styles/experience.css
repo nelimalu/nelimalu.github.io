@@ -8,6 +8,37 @@
 	src: url('../assets/fonts/Poppins-SemiBold.ttf') format("truetype");
 }
 
+@font-face {
+	font-family: bebas;
+	src: url('../assets/fonts/BebasNeue.ttf') format("truetype");
+}
+
+@keyframes highlightKeyframes {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    width: 100%;
+  }
+
+}
+
+@keyframes stripes {
+  0% {
+    transform: translate(-100%, -100%);
+  }
+
+  25% {
+    transform: translate(0%, 0%);
+  }
+
+  50%, 100% {
+  	transform: translate(100%, 100%);
+  }
+
+}
+
 body {
 	background: linear-gradient(#141b25, #221e22);
 }
@@ -31,12 +62,40 @@ body {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	margin-top: 3%;
+
 }
 
 .summary-section {
 	font-family: monospace;
 	color: white;
 	font-size: 1.3vw;
+}
+
+.about-section {
+	position: relative;
+	overflow: hidden;
+	border-radius: 100px;
+	/*clip-path: circle(50%);*/
+}
+
+.about-section::before {
+	position: absolute;
+	content: '';
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 100px,
+      #cf9115 100px,
+      #cf9115 110px
+  	);
+	clip-path: circle(50%);
+	animation: stripes 5s ease infinite;
+	background-clip: content-box;
 }
 
 .red { color: #e32547; }
@@ -89,8 +148,56 @@ body {
 	font-family: poppins;
 	color: white;
 	text-align: center;
+
+}
+
+.description-section a {
+	color: white;
+	text-decoration: none;
 }
 
 .description-title {
 	font-size: 200%;
+}
+
+.description {
+	padding-left: 8%;
+	padding-right: 8%;
+}
+
+.highlight {
+	position: relative;
+	z-index: 1;
+	transition: .5s;
+}
+
+.highlight::after {
+	--highlight-colour: #000dff;
+	content: "";
+	display: inline-block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	background: linear-gradient(to top, transparent 0%, transparent 15%, var(--highlight-colour) 15%, var(--highlight-colour) 50%, transparent 50%);
+	animation-name: highlightKeyframes;
+	animation-duration: 1.5s;
+	transition: .5s;
+}
+
+.highlight:hover::after {
+	background: transparent;
+}
+
+.projects-container {
+	margin-top: 5%;
+}
+
+.projects-title {
+	font-family: monospace;
+
+	font-size: 500%;
+	color: rgba(0, 0, 0, 0.3);
 }
