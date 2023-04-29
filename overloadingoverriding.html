@@ -43,6 +43,200 @@
 		<div class="main-container">
 			<h1>[comp sci] / overloading & overriding</h1>
 			
+			<h2>Overloading</h2>
+
+			overloading a method is just creating two methods with the same name, but different parameters
+
+<pre>
+public class Helper {
+	public int add(int x, int y) {
+		return x + y;
+	}
+
+	public String add(String x, String y) {
+		return x + " " + y;
+	}
+}
+</pre>
+			
+			<p>
+				in the above example, I have two methods called `add()` but one of them takes two integers as a parameter, and one takes two Strings
+				<br>in memory, these are saved as two separate methods
+				<br>also notice that the bodies of the methods don’t have to be the same, as we can see in the add method with strings were it appends a space in between the two Strings
+				<br>this makes it easier for anyone working on your code in the future to not have to remember separate methods that do the same thing just with different datatypes
+				<br>here is an example of running these overloaded methods
+			</p>
+
+<pre>
+public class Driver {
+	public static void main(String[] args) {
+		Helper helper = new Helper();
+
+		System.out.println(helper.add(1, 2));
+		System.out.println(helper.add("Luka", "Jovanovic"));
+
+		/*
+		OUTPUT
+
+		3
+		Luka Jovanovic
+		*/
+	}
+}
+</pre>
+			
+			<p>
+				overloaded methods are often used in class constructors to define some default values
+				<br>consider this `Person` class
+			</p>
+
+<pre>
+public class Person {
+	String name;
+	int age;
+
+	public Person() {
+		this.name = "default";
+		this.age = 0;
+	}
+
+	public Person(String name) {
+		this.name = name;
+		this.age = 0;
+	}
+
+	public Person(int age) {
+		this.name = "default";
+		this.age = age;
+	}
+
+	public Person(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+}
+</pre>
+			
+			<p>
+				in this case, we have four overloaded constructors, each with different parameters
+				<br>it accounts for each possible scenario, and fills unsupplied values with default values
+				<br>if we have a lot of parameters, we can also use `this` to save time
+				<br>consider these two methods
+			</p>
+
+<pre>
+public Person(String name) {
+	this.name = name;
+	this.age = 0;
+}
+
+public Person(int age) {
+	this.name = "default";
+	this.age = age;
+}
+</pre>
+			
+			<p>
+				in these cases, we are redefining `this.name = "default"` and `this.age = 0` redundantly, since it was already defined in the first constructor
+				<br>it would also get very annoying to write if we have more attributes
+				<br>we can write this more concisely
+			</p>
+
+<pre>
+public class Person {
+	String name;
+	int age;
+
+	public Person() {
+		this.name = "default";
+		this.age = 0;
+	}
+
+	public Person(String name) {
+		this();  // runs the constructor above, and sets name and age to default values
+		this.name = name;  // overrides name, but leaves age = 0
+	}
+
+	public Person(int age) {
+		this();  // same thing applies here
+		this.age = age;
+	}
+
+	public Person(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+}
+</pre>
+
+		<h2>Overriding</h2>
+
+		<p>
+			method overriding is redefining a method of a superclass in a subclass
+			<br>if a superclass is needed for a subclass, but we want to change the functionality of one specific method that doesn’t fit a need, we override it
+			<br>consider this example
+		</p>
+
+<pre>
+public class Person {
+	String name;
+
+	public Person(name) {
+		this.name = name;
+	}
+
+	public void eat() {
+		System.out.println(name + " is eating.");
+	}
+
+	public void move() {
+		System.out.println(name + " is walking.");
+	}
+
+}
+</pre>
+
+<pre>
+public class Athlete extends Person {
+
+	public Athlete(String name) {
+		super(name);
+	}
+
+	public void move() {
+		System.out.println(name + " is RUNNING!");
+	}
+}
+</pre>
+
+		notice that the Athlete subclass has a method called `move()` even though there is already a method with that name in the superclass
+
+<pre>
+public class Driver {
+	public static void main(String[] args) {
+
+		Person tim = new Person("tim");
+		Athlete bob = new Athlete("bob");
+
+		tim.move();
+		bob.move();
+		bob.eat();
+
+		/*
+		OUTPUT:
+		tim is walking.
+		bob is RUNNING!
+		bob is eating.
+		*/
+	}
+}
+</pre>
+		
+			<p>
+				in this example, we can see that `tim`, being of type `Person`, can call the `.move()` method
+				<br>`bob`, of subclass `Athlete`, can also call the `.move()` method, however it is overridden, so it calls the method defined in `Athlete` over the one defined in `Person`
+				<br>However, `bob` can still run `.eat()`, a method defined in `Person`
+			</p>
 		</div>
  
 		<script src="scripts/notes.js"></script>
