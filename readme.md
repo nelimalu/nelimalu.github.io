@@ -1,5 +1,5 @@
 # todo
-- [ ] create bibliography of all resources used 
+- [x] create bibliography of all resources used 
 - [ ] decide if I want short summary on landing page
 - [ ] link cta support to contact page
 - [ ] highlight comments work on notes
@@ -8,4 +8,8 @@
 - [ ] make sending emails work
 - [ ] a tags on all things in experience summary
 - [ ] typing animation async on each line experience page on load
-- [ ] click on image sends you somewhere
+- [ ] click on face image sends you somewhere
+- [ ] contact me button on main page
+- [ ] star rating on project
+- [ ] parallax enter projects from side
+- [ ] copy button for code

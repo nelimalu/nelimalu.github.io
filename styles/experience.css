@@ -192,12 +192,89 @@ body {
 }
 
 .projects-container {
-	margin-top: 5%;
+	margin: 5%;
+	margin-left: 2%;
 }
 
 .projects-title {
-	font-family: monospace;
-
-	font-size: 500%;
+	font-family: bebas;
+	font-size: 1000%;
 	color: rgba(0, 0, 0, 0.3);
 }
+
+.projects-section {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.project {
+	background-color: white;
+	margin: 15%;
+	border-radius: 10px;
+	transition-duration: .3s;
+	box-shadow: 0px 5px 15px 5px #000;
+	height: 80vh;
+}
+
+.project:hover {
+	transform: scale(1.05);
+}
+
+.project-image {
+	border-radius: 10px;
+	width: 100%;
+}
+
+.project-info {
+	padding: 5%;
+}
+
+.project-info-title {
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 250%;
+}
+
+.project-description {
+	font-family: poppins;
+	margin-top: 3%;
+	font-size: 100%;
+}
+
+.project-tags {
+	margin-top: 2%;
+}
+
+.tag {
+	font-family: monospace;
+	font-size: 100%;
+	background-color: #b44bc9;
+	padding: 1%;
+	border-radius: 5px;
+}
+
+.project-link a {
+	color: #33729e;
+	font-family: poppins;
+	text-decoration: none;
+}
+
+.bibliography-container {
+	color: white;
+	font-size: 100%;
+	font-family: poppins;
+	margin-top: 5%;
+}
+
+.bibliography-title {
+	text-align: center;
+	font-size: 200%;
+	color: #ededed;
+}
+
+.bibliography {
+	font-family: monospace;
+	line-height: 3.5;
+	color: #c9c9c9;
+}
+
