@@ -105,7 +105,7 @@ public class Student extends Person {
 
 			the class inherited the name and walk method from the superclass (Person)
 			<br>Since the Student class has all the attributes that Person has, the Student constructor also needs to take in all of Person’s attributes (name) on top of all of it’s own attributes (average)
-			<br>this is why the constructor has two parameters `String name` and `double a`
+			<br>this is why the constructor has two parameters <c>String name</c> and <c>double a</c>
 
 			<br>This is how this example would work in practice
 
@@ -137,7 +137,7 @@ public class Driver {
 
 			<h2>this keyword</h2>
 
-			`this` is a keyword that acts as the current object the class is running as
+			<c>this</c> is a keyword that acts as the current object the class is running as
 			<br>consider the following example
 
 <pre>
@@ -154,7 +154,7 @@ public class Person() {
 }
 </pre>
 
-			<br>notice the `printThis()` method that prints the `this`keyword
+			<br>notice the <c>printThis()</c> method that prints the <c>this</c>keyword
 
 <pre>
 public class Driver {
@@ -176,9 +176,9 @@ public class Driver {
 			
 			<p>
 				they have the same output!
-				<br>`this` within the context of a class is the same thing as an instance variable in a different class
-				<br>in this example, `this` and `me` are the same thing
-				<br>`this` is commonly used in the constructor
+				<br><c>this</c> within the context of a class is the same thing as an instance variable in a different class
+				<br>in this example, <c>this</c> and <c>me</c> are the same thing
+				<br><c>this</c> is commonly used in the constructor
 				<br>usually, in a constructor we need to think of another name similar to the name of our attribute, in order to take it as a parameter
 			</p>
 
@@ -194,8 +194,8 @@ public class Person {
 }
 </pre>
 			<p>
-				it’s a bit unreadable when we have to make variables `n` and `a` in order to save them to `name` and `age`
-				<br>a better way of doing this is by using `this`
+				it’s a bit unreadable when we have to make variables <c>n</c> and <c>a</c> in order to save them to <c>name</c> and <c>age</c>
+				<br>a better way of doing this is by using <c>this</c>
 			</p>
 
 <pre>
@@ -212,16 +212,16 @@ public class Person {
 			
 			<p>
 				these two programs do the same thing, but the latter is easier to understand for someone reading your program
-				<br>[sidenote] in most other programming languages, like python and javascript, you need to use the `this` keyword in any situation where you are accessing something from your class (in python `this` is called `self`)
-			    <br>this means that in java, when you don’t write `this.` explicitly, java is doing it in the background for you
-			    <br>this is an important concept to understand for `super`
+				<br>[sidenote] in most other programming languages, like python and javascript, you need to use the <c>this</c> keyword in any situation where you are accessing something from your class (in python <c>this</c> is called <c>self</c>)
+			    <br>this means that in java, when you don’t write <c>this.</c> explicitly, java is doing it in the background for you
+			    <br>this is an important concept to understand for <c>super</c>
 			</p>
 
 
 			<h2>super keyword</h2>
 
 			<p>
-				`super` acts as the accessor to the superclass
+				<c>super</c> acts as the accessor to the superclass
 				<br>if in a subclass we run a method from the superclass, we can just run the method
 				<br>can bee seen in example below
 			</p>
@@ -257,17 +257,17 @@ public class Student extends Person {
 </pre>
 			
 			<p>
-				`super` is used in the constructor, but we’ll get back to that later
-				<br>what’s more interesting is the `walk()` method being called in the `goToClass()` method
-				<br>`walk()` is a method of the superclass
-				<br>✨ **this means that we’re really just running** `super.walk()`
-				<br>however, as we learned with `this`, java just adds it in on it’s own when compiling
-				<br>in the constructor, we are running `super(name)`
-			    <br>as we know from making a regular instance of any class, all we do is `Student("Luka", 90)`
+				<c>super</c> is used in the constructor, but we’ll get back to that later
+				<br>what’s more interesting is the <c>walk()</c> method being called in the <c>goToClass()</c> method
+				<br><c>walk()</c> is a method of the superclass
+				<br>✨ **this means that we’re really just running** <c>super.walk()</c>
+				<br>however, as we learned with <c>this</c>, java just adds it in on it’s own when compiling
+				<br>in the constructor, we are running <c>super(name)</c>
+			    <br>as we know from making a regular instance of any class, all we do is <c>Student("Luka", 90)</c>
 			    <br>it’s the name of the class, treated as a method (or function), and the parameters of the constructor
-			    <br>the same thing is happening here, but instead of writing the name of the superclass, we’re running `super()`
-			    <br>this means that `super()` is just running the constructor of the superclass
-			    <br>and this makes sense in context, because we’re passing in `name` to `super(name)` because `name` is a parameter of the `Person()` constructor, and not `Student()`
+			    <br>the same thing is happening here, but instead of writing the name of the superclass, we’re running <c>super()</c>
+			    <br>this means that <c>super()</c> is just running the constructor of the superclass
+			    <br>and this makes sense in context, because we’re passing in <c>name</c> to <c>super(name)</c> because <c>name</c> is a parameter of the <c>Person()</c> constructor, and not <c>Student()</c>
 			</p>
 
 		</div>

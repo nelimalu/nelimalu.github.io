@@ -47,7 +47,7 @@
 
 			<p>
 				Sorting is a branch of programming that takes an array of comparable values, like integers, and sorts them in an ordered way, such as ascending or descending
-				<br>An unsorted array `[4, 2, 3, 1]` would be sorted as `[1, 2, 3, 4]`
+				<br>An unsorted array <c>[4, 2, 3, 1]</c> would be sorted as <c>[1, 2, 3, 4]</c>
 				<br>There are three main sorting algorithms: selection sort, merge sort, and insertion sort
 			</p>
 
@@ -61,7 +61,7 @@ Here is an implementation of selection sort in Java:
 public static void selectionSort(int[] arr) {
     int n = arr.length;
 
-    for (int i = 0; i < n <br>1; i++) {
+    for (int i = 0; i < n - 1; i++) {
         int minIndex = i;
         for (int j = i + 1; j < n; j++) {
             if (arr[j] < arr[minIndex]) {
@@ -74,9 +74,9 @@ public static void selectionSort(int[] arr) {
     }
 }</pre>
 
-In this implementation, `arr` is the array to be sorted. The outer loop iterates over the unsorted part of the array, and the inner loop finds the index of the smallest element in the unsorted part of the array. The smallest element is then swapped with the first element in the unsorted part of the array.
+In this implementation, <c>arr</c> is the array to be sorted. The outer loop iterates over the unsorted part of the array, and the inner loop finds the index of the smallest element in the unsorted part of the array. The smallest element is then swapped with the first element in the unsorted part of the array.
 
-For example, if we have the array `[4, 2, 3, 1]`, the algorithm will first select `1` as the smallest element and swap it with `4`, resulting in the array `[1, 2, 3, 4]`. The algorithm will then select `2` as the smallest element in the remaining unsorted part of the array (`[2, 3, 4]`) and swap it with `2`, resulting in the array `[1, 2, 3, 4]`.
+For example, if we have the array <c>[4, 2, 3, 1]</c>, the algorithm will first select <c>1</c> as the smallest element and swap it with <c>4</c>, resulting in the array <c>[1, 2, 3, 4]</c>. The algorithm will then select <c>2</c> as the smallest element in the remaining unsorted part of the array (<c>[2, 3, 4]</c>) and swap it with <c>2</c>, resulting in the array <c>[1, 2, 3, 4]</c>.
 
 While selection sort is simple to implement, it is not very efficient for large arrays. It has a time complexity of O(n^2), where n is the number of elements in the array.
 
@@ -124,15 +124,15 @@ public static void merge(int[] arr, int start, int mid, int end) {
     }
 
     for (i = start; i <= end; i++) {
-        arr[i] = temp[i <br>start];
+        arr[i] = temp[i - start];
     }
 }</pre>
 
-In this implementation, `arr` is the array to be sorted, `start` is the starting index, and `end` is the ending index. The `mergeSort` method recursively divides the array into smaller subarrays, sorts those subarrays, and then merges them back together using the `merge` method.
+In this implementation, <c>arr</c> is the array to be sorted, <c>start</c> is the starting index, and <c>end</c> is the ending index. The <c>mergeSort</c> method recursively divides the array into smaller subarrays, sorts those subarrays, and then merges them back together using the <c>merge</c> method.
 
-The `merge` method takes three inputs: the array to be sorted, `start`, `mid`, and `end`. It creates a temporary array `temp` to store the sorted elements, and then iterates over the subarrays, comparing elements and adding them to `temp` in the correct order. Finally, it copies the sorted elements back into the original array.
+The <c>merge</c> method takes three inputs: the array to be sorted, <c>start</c>, <c>mid</c>, and <c>end</c>. It creates a temporary array <c>temp</c> to store the sorted elements, and then iterates over the subarrays, comparing elements and adding them to <c>temp</c> in the correct order. Finally, it copies the sorted elements back into the original array.
 
-For example, if we have the array `[4, 2, 3, 1]`, the algorithm will first divide it into two subarrays `[4, 2]` and `[3, 1]`, sort those subarrays to get `[2, 4]` and `[1, 3]`, and then merge them together to get the sorted array `[1, 2, 3, 4]`.
+For example, if we have the array <c>[4, 2, 3, 1]</c>, the algorithm will first divide it into two subarrays <c>[4, 2]</c> and <c>[3, 1]</c>, sort those subarrays to get <c>[2, 4]</c> and <c>[1, 3]</c>, and then merge them together to get the sorted array <c>[1, 2, 3, 4]</c>.
 
 <h2>Insertion Sort</h2>
 
@@ -155,9 +155,9 @@ public static void insertionSort(int[] arr) {
     }
 }</pre>
 
-In this implementation, `arr` is the array to be sorted. The outer loop iterates over the unsorted part of the array, and the inner loop iterates over the sorted part of the array, finding the correct position for the current element. The current element is then inserted into the sorted part of the array.
+In this implementation, <c>arr</c> is the array to be sorted. The outer loop iterates over the unsorted part of the array, and the inner loop iterates over the sorted part of the array, finding the correct position for the current element. The current element is then inserted into the sorted part of the array.
 
-For example, if we have the array `[4, 2, 3, 1]`, the algorithm will first take `2` as the first unsorted element and insert it into the sorted part of the array, resulting in `[2, 4, 3, 1]`. It will then take `3` as the next unsorted element and insert it into the correct position in the sorted part of the array, resulting in `[2, 3, 4, 1]`. The algorithm will continue in this way until the entire array is sorted.
+For example, if we have the array <c>[4, 2, 3, 1]</c>, the algorithm will first take <c>2</c> as the first unsorted element and insert it into the sorted part of the array, resulting in <c>[2, 4, 3, 1]</c>. It will then take <c>3</c> as the next unsorted element and insert it into the correct position in the sorted part of the array, resulting in <c>[2, 3, 4, 1]</c>. The algorithm will continue in this way until the entire array is sorted.
 
 Insertion sort has a time complexity of O(n^2) in the worst case, but is more efficient than selection sort for small arrays or partially sorted arrays.
 
@@ -181,9 +181,9 @@ public static int linearSearch(int[] arr, int target) {
     return -1;
 }</pre>
 
-In this implementation, `arr` is the array to be searched, and `target` is the value to search for. The algorithm iterates over each element in `arr`, comparing it to `target`. If a match is found, the algorithm returns the index of the element. If no match is found, the algorithm returns -1.
+In this implementation, <c>arr</c> is the array to be searched, and <c>target</c> is the value to search for. The algorithm iterates over each element in <c>arr</c>, comparing it to <c>target</c>. If a match is found, the algorithm returns the index of the element. If no match is found, the algorithm returns -1.
 
-For example, if we have the array `[4, 2, 3, 1]` and we want to search for the value `3`, the algorithm will iterate over the array and find a match at index `2`. It will then return `2`.
+For example, if we have the array <c>[4, 2, 3, 1]</c> and we want to search for the value <c>3</c>, the algorithm will iterate over the array and find a match at index <c>2</c>. It will then return <c>2</c>.
 
 Linear search has a time complexity of O(n), where n is the number of elements in the array. It is best used for small arrays or unsorted arrays. For larger or sorted arrays, binary search is a more efficient algorithm.
 
@@ -215,9 +215,9 @@ public static int binarySearch(int[] arr, int target) {
     return -1;
 }</pre>
 
-In this implementation, `arr` is the sorted array to be searched, and `target` is the value to search for. The algorithm initializes two pointers, `left` and `right`, to the beginning and end of the array, respectively. It then repeatedly divides the search interval in half, updating the pointers as necessary, until the target value is found or the search interval is empty.
+In this implementation, <c>arr</c> is the sorted array to be searched, and <c>target</c> is the value to search for. The algorithm initializes two pointers, <c>left</c> and <c>right</c>, to the beginning and end of the array, respectively. It then repeatedly divides the search interval in half, updating the pointers as necessary, until the target value is found or the search interval is empty.
 
-For example, if we have the sorted array `[1, 2, 3, 4]` and we want to search for the value `3`, the algorithm will start by setting `left` to `0` and `right` to `3`. It will then calculate the midpoint, which is `1`. Since the value at the midpoint is less than the target value, the algorithm updates `left` to `mid + 1`, which is `2`. It then calculates the new midpoint, which is `3`. Since the value at the midpoint is equal to the target value, the algorithm returns `3`.
+For example, if we have the sorted array <c>[1, 2, 3, 4]</c> and we want to search for the value <c>3</c>, the algorithm will start by setting <c>left</c> to <c>0</c> and <c>right</c> to <c>3</c>. It will then calculate the midpoint, which is <c>1</c>. Since the value at the midpoint is less than the target value, the algorithm updates <c>left</c> to <c>mid + 1</c>, which is <c>2</c>. It then calculates the new midpoint, which is <c>3</c>. Since the value at the midpoint is equal to the target value, the algorithm returns <c>3</c>.
 
 If the target value is not found, the algorithm will eventually exhaust the search interval and return -1.
 

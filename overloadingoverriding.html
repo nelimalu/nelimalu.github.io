@@ -60,7 +60,7 @@ public class Helper {
 </pre>
 			
 			<p>
-				in the above example, I have two methods called `add()` but one of them takes two integers as a parameter, and one takes two Strings
+				in the above example, I have two methods called <c>add()</c> but one of them takes two integers as a parameter, and one takes two Strings
 				<br>in memory, these are saved as two separate methods
 				<br>also notice that the bodies of the methods don’t have to be the same, as we can see in the add method with strings were it appends a space in between the two Strings
 				<br>this makes it easier for anyone working on your code in the future to not have to remember separate methods that do the same thing just with different datatypes
@@ -87,7 +87,7 @@ public class Driver {
 			
 			<p>
 				overloaded methods are often used in class constructors to define some default values
-				<br>consider this `Person` class
+				<br>consider this <c>Person</c> class
 			</p>
 
 <pre>
@@ -120,7 +120,7 @@ public class Person {
 			<p>
 				in this case, we have four overloaded constructors, each with different parameters
 				<br>it accounts for each possible scenario, and fills unsupplied values with default values
-				<br>if we have a lot of parameters, we can also use `this` to save time
+				<br>if we have a lot of parameters, we can also use <c>this</c> to save time
 				<br>consider these two methods
 			</p>
 
@@ -137,7 +137,7 @@ public Person(int age) {
 </pre>
 			
 			<p>
-				in these cases, we are redefining `this.name = "default"` and `this.age = 0` redundantly, since it was already defined in the first constructor
+				in these cases, we are redefining <c>this.name = "default"</c> and <c>this.age = 0</c> redundantly, since it was already defined in the first constructor
 				<br>it would also get very annoying to write if we have more attributes
 				<br>we can write this more concisely
 			</p>
@@ -209,7 +209,7 @@ public class Athlete extends Person {
 }
 </pre>
 
-		notice that the Athlete subclass has a method called `move()` even though there is already a method with that name in the superclass
+		notice that the Athlete subclass has a method called <c>move()</c> even though there is already a method with that name in the superclass
 
 <pre>
 public class Driver {
@@ -233,9 +233,9 @@ public class Driver {
 </pre>
 		
 			<p>
-				in this example, we can see that `tim`, being of type `Person`, can call the `.move()` method
-				<br>`bob`, of subclass `Athlete`, can also call the `.move()` method, however it is overridden, so it calls the method defined in `Athlete` over the one defined in `Person`
-				<br>However, `bob` can still run `.eat()`, a method defined in `Person`
+				in this example, we can see that <c>tim</c>, being of type <c>Person</c>, can call the <c>.move()</c> method
+				<br><c>bob</c>, of subclass <c>Athlete</c>, can also call the <c>.move()</c> method, however it is overridden, so it calls the method defined in <c>Athlete</c> over the one defined in <c>Person</c>
+				<br>However, <c>bob</c> can still run <c>.eat()</c>, a method defined in <c>Person</c>
 			</p>
 		</div>
  
