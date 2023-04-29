@@ -42,8 +42,165 @@
 
 		<div class="main-container">
 			<h1>[comp sci] / UML & access modifiers</h1>
+			<p>
+				<br>UML (Unified Modeling Language) diagrams are a way for "programmers" to plan out a class in a visual way without writing any code
+				<br>In reality, overpaid senior developers or software architects sit down for five minutes and make a uml diagram then send it to the poor underpaid (in comparison) junior developers to actually code it
+				<br>Access modifiers are a way for classes to hide information from other classes
+			</p>
+
+			<h2>Creating a UML diagram</h2>
+
+			consider the following class
+
+<pre>
+public class Student {
+	public String name;
+	private int age;
+	private int energy;
+	private double height;
+	private double average;
+	private String timetable;
+
+	public Student(String n, int _age, int e, double h, double _average, String t) {
+		name = n;
+		age = _age;
+		energy = e;
+		height = h;
+		average = _average;
+		timetable = t
+	}
+
+	public double study() {
+		energy -= 10;  // loses energy
+		average += 0.5;  // average increases because study
+		return average;  // returns the new average
+	}
+
+	public void sleep(int hours) {
+		energy += hours * 10; // gets energy from sleeping
+	}
+}
+</pre>
 			
+			<p>
+				you may notice that in the constructor i added an underscore to differentiate between the constructor parameters and the class attributes
+				<br>in professional code you will often see either underscores, or the `this` keyword (explained in different file) used
+				<br>Here is how you would define this class in UML
+			</p>
+<pre>
+| Student
+------------------------------------
+| +name: String
+| -age: int
+| -energy: int
+| -height: double
+| -average: double
+| -timetable: String
+------------------------------------
+| +Student(n: String, _age: int, e: int, h: double, _average: double, t: String)
+| +study(): double
+| +sleep(hours: int): void</pre>
+			<p>
+				take a second to look at the similarities between the class and the UML diagram
+				<br>the first section of the UML is the name of the class
+				<br>the second section is all of the attributes
+				<br>they follow the format `attributeName: dataType`
+				<br>the third section is all of the methods
+				<br>they follow the format `methodName(parameterName: dataType): returnDataType`
+				<br>the constructor has no return type (not even void), so nothing is written in that case
+				<br>a `+` before an attribute or method means that it is public
+				<br>a `-` means that it is private
+			</p>
+
+			<h2>What is public vs private?</h2>
+
+			<p>
+				`public` before an attribute or method means it can be accessed from any other class/file
+				<br>`private` before an attribute or method means it **cannot** be accessed from anywhere else except for its own class
+			</p>
+
+			Consider the following example:
+
+<pre>
+public class Person {
+	public String firstName;
+	private String lastName;
+
+	public Person(String f, String l) {
+		firstName = f;
+		lastName = l;
+	}
+}
+</pre>
+
+<pre>
+public class Driver {
+	public static void main(String[] args) {
+		Person person1 = new Person("Luka", "Jovanovic");
+	}
+}
+</pre>
+			
+			<p>
+				notice how:
+			    <br>`firstName` is `public`
+			    <br>`lastName` is `private`
+				<br>now let’s try to access these attributes from the driver class
+			</p>
+<pre>
+public class Driver {
+	public static void main(String[] args) {
+		Person person1 = new Person("Luka", "Jovanovic");
+
+		System.out.println(person1.lastName);
+	}
+}
+
+/*
+OUTPUT
+
+Driver.java:6: error: lastName has private access in Person
+      System.out.println(person1.lastName);
+                                ^
+1 error
+*/
+</pre>
+			
+			<p>
+				the program crashes because the Driver class cannot access the **private** attribute `lastName`
+				<br>if instead we were to print `person1.firstName` the program would not crash because that attribute is public
+			</p>
+
+			<h2>Other access modifiers</h2>
+
+			((this section is more complicated, and likely not necessary to understand in this course))
+
+			<p>
+				on top of `public` and `private`, there is also `protected` and `default`
+				<br>`protected` and `default` are very similar
+				    <br>they make it so that class attributes can be seen by subclasses (any class that inherits from itself)
+				    <br>in comparison, if a variable is private the subclasses will not have access to it
+				<br>Java, however, is not only a group of classes, but a group of packages
+				<br>packages are used to organize code, as well as control access modifiers (a bit of a paradox!)
+				<br>an attribute with a `default` access modifier will be visible to subclasses in the same package, but not visible to subclasses in a separate package
+			</p>
+			    also note that if you make an attribute and don’t specify an access modifier
+
+			    <br><c>int x = 10</c>
+
+			    <br>it is the same as writing
+
+			    <br><c>default x = 10</c>
+
+			   	<p>
+					an attribute with the `protected` access modifier will, on top of being visible to classes subclasses in the same package, will also be visible to subclasses in other packages. However it will not be visible to any non subclasses (any classes that don’t inherit from itself) in other packages
+				</p>
+	
+				This table helped me understand				
+				<img src="./assets/images/visibilitytable.png">
 		</div>
+
+
  
 		<script src="scripts/notes.js"></script>
 		<script src="scripts/navbar.js"></script>

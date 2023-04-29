@@ -51,3 +51,7 @@ pre {
     border-radius: 5px;
     overflow-x: auto;
 }
+
+img {
+	width: 100%;
+}
