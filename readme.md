@@ -8,3 +8,4 @@
 - [ ] make sending emails work
 - [ ] a tags on all things in experience summary
 - [ ] typing animation async on each line experience page on load
+- [ ] click on image sends you somewhere
