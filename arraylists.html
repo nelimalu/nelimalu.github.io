@@ -43,6 +43,50 @@
 		<div class="main-container">
 			<h1>[comp sci] / Arraylists</h1>
 			
+			In Java, an ArrayList is a dynamic array that can grow or shrink in size as needed. Unlike regular arrays, you don't need to specify the size of an ArrayList when you declare it. ArrayLists are part of the Java Collections framework, which provides a set of classes and interfaces for working with collections of objects.
+
+Here's an example of how to declare and initialize an ArrayList of integers:
+
+<pre>
+import java.util.ArrayList;
+
+ArrayList<Integer> numbers = new ArrayList<Integer>();</pre>
+
+In this example, we declare an ArrayList called **`numbers`** that can hold Integer objects. Note that we need to import the **`java.util.ArrayList`** class to use ArrayLists in our code.
+
+You can add elements to an ArrayList using the **`add()`** method:
+
+<pre>
+numbers.add(1);
+numbers.add(2);
+numbers.add(3);</pre>
+
+In this example, we use the **`add()`** method to add three integers to the **`numbers`** ArrayList.
+
+You can access individual elements of an ArrayList using the **`get()`** method:
+
+<pre>
+int firstNumber = numbers.get(0);
+int thirdNumber = numbers.get(2);</pre>
+
+In this example, we use the **`get()`** method to access the first element of the **`numbers`** ArrayList (which has an index of 0) and assign it to a variable called **`firstNumber`**. Similarly, we access the third element (which has an index of 2) and assign it to a variable called **`thirdNumber`**.
+
+You can also change the value of an element in an ArrayList:
+
+<pre>
+numbers.set(0, 6);</pre>
+
+In this example, we use the **`set()`** method to change the value of the first element in the **`numbers`** ArrayList to 6.
+
+Finally, you can iterate over the elements of an ArrayList using a loop:
+
+<pre>
+for (int i = 0; i < numbers.size(); i++) {
+    System.out.println(numbers.get(i));
+}</pre>
+
+In this example, we use a **`for`** loop to iterate over each element of the **`numbers`** ArrayList. The **`size()`** method of the ArrayList gives us the number of elements in the ArrayList, so we use this to determine when to stop looping. Inside the loop, we use the **`get()`** method and the index variable **`i`** to access each element of the ArrayList and print it to the console.
+
 		</div>
  
 		<script src="scripts/notes.js"></script>

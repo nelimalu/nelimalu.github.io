@@ -43,6 +43,186 @@
 		<div class="main-container">
 			<h1>[comp sci] / search & sort</h1>
 			
+			<h2>Sorting</h2>
+
+			<p>
+				Sorting is a branch of programming that takes an array of comparable values, like integers, and sorts them in an ordered way, such as ascending or descending
+				<br>An unsorted array `[4, 2, 3, 1]` would be sorted as `[1, 2, 3, 4]`
+				<br>There are three main sorting algorithms: selection sort, merge sort, and insertion sort
+			</p>
+
+			<h2>Selection Sort</h2>
+
+Selection sort is a simple and inefficient sorting algorithm that works by selecting the smallest element from the unsorted part of the array and swapping it with the element at the beginning of the unsorted part of the array. This continues until the entire array is sorted.
+
+Here is an implementation of selection sort in Java:
+
+<pre>
+public static void selectionSort(int[] arr) {
+    int n = arr.length;
+
+    for (int i = 0; i < n <br>1; i++) {
+        int minIndex = i;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+        int temp = arr[minIndex];
+        arr[minIndex] = arr[i];
+        arr[i] = temp;
+    }
+}</pre>
+
+In this implementation, `arr` is the array to be sorted. The outer loop iterates over the unsorted part of the array, and the inner loop finds the index of the smallest element in the unsorted part of the array. The smallest element is then swapped with the first element in the unsorted part of the array.
+
+For example, if we have the array `[4, 2, 3, 1]`, the algorithm will first select `1` as the smallest element and swap it with `4`, resulting in the array `[1, 2, 3, 4]`. The algorithm will then select `2` as the smallest element in the remaining unsorted part of the array (`[2, 3, 4]`) and swap it with `2`, resulting in the array `[1, 2, 3, 4]`.
+
+While selection sort is simple to implement, it is not very efficient for large arrays. It has a time complexity of O(n^2), where n is the number of elements in the array.
+
+<h2>Merge Sort</h2>
+
+Merge sort is a more efficient sorting algorithm than selection sort, with a time complexity of O(n log n). It works by recursively dividing the array into smaller subarrays, sorting those subarrays, and then merging them back together in the correct order.
+
+Here is an implementation of merge sort in Java:
+
+<pre>
+public static void mergeSort(int[] arr, int start, int end) {
+    if (start < end) {
+        int mid = (start + end) / 2;
+        mergeSort(arr, start, mid);
+        mergeSort(arr, mid + 1, end);
+        merge(arr, start, mid, end);
+    }
+}</pre>
+<pre>
+public static void merge(int[] arr, int start, int mid, int end) {
+    int[] temp = new int[end - start + 1];
+    int i = start, j = mid + 1, k = 0;
+
+    while (i <= mid && j <= end) {
+        if (arr[i] <= arr[j]) {
+            temp[k] = arr[i];
+            i++;
+        } else {
+            temp[k] = arr[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i <= mid) {
+        temp[k] = arr[i];
+        i++;
+        k++;
+    }
+
+    while (j <= end) {
+        temp[k] = arr[j];
+        j++;
+        k++;
+    }
+
+    for (i = start; i <= end; i++) {
+        arr[i] = temp[i <br>start];
+    }
+}</pre>
+
+In this implementation, `arr` is the array to be sorted, `start` is the starting index, and `end` is the ending index. The `mergeSort` method recursively divides the array into smaller subarrays, sorts those subarrays, and then merges them back together using the `merge` method.
+
+The `merge` method takes three inputs: the array to be sorted, `start`, `mid`, and `end`. It creates a temporary array `temp` to store the sorted elements, and then iterates over the subarrays, comparing elements and adding them to `temp` in the correct order. Finally, it copies the sorted elements back into the original array.
+
+For example, if we have the array `[4, 2, 3, 1]`, the algorithm will first divide it into two subarrays `[4, 2]` and `[3, 1]`, sort those subarrays to get `[2, 4]` and `[1, 3]`, and then merge them together to get the sorted array `[1, 2, 3, 4]`.
+
+<h2>Insertion Sort</h2>
+
+Insertion sort is another simple sorting algorithm that works by dividing the array into two parts: the sorted part, which starts as the first element, and the unsorted part, which starts as the remainder of the array. The algorithm then iterates over the unsorted part, taking each element in turn and inserting it into the correct position in the sorted part of the array.
+
+Here is an implementation of insertion sort in Java:
+
+<pre>
+public static void insertionSort(int[] arr) {
+    int n = arr.length;
+
+    for (int i = 1; i < n; i++) {
+        int key = arr[i];
+        int j = i - 1;
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = key;
+    }
+}</pre>
+
+In this implementation, `arr` is the array to be sorted. The outer loop iterates over the unsorted part of the array, and the inner loop iterates over the sorted part of the array, finding the correct position for the current element. The current element is then inserted into the sorted part of the array.
+
+For example, if we have the array `[4, 2, 3, 1]`, the algorithm will first take `2` as the first unsorted element and insert it into the sorted part of the array, resulting in `[2, 4, 3, 1]`. It will then take `3` as the next unsorted element and insert it into the correct position in the sorted part of the array, resulting in `[2, 3, 4, 1]`. The algorithm will continue in this way until the entire array is sorted.
+
+Insertion sort has a time complexity of O(n^2) in the worst case, but is more efficient than selection sort for small arrays or partially sorted arrays.
+
+			<h2>Searching</h2>
+
+Searching is another important aspect of programming that relies on sorting. A searching algorithm is able to take a sorted array, and find at what index an element is located. There are two main searching algorithms, linear search and binary search.
+
+<h2>Linear search</h2>
+
+Linear search is a simple searching algorithm that works by iterating over an array and comparing each element to the target value. If the target value is found, the algorithm returns the index of the element. If the target value is not found, the algorithm returns -1.
+
+Here is an implementation of linear search in Java:
+
+<pre>
+public static int linearSearch(int[] arr, int target) {
+    for (int i = 0; i < arr.length; i++) {
+        if (arr[i] == target) {
+            return i;
+        }
+    }
+    return -1;
+}</pre>
+
+In this implementation, `arr` is the array to be searched, and `target` is the value to search for. The algorithm iterates over each element in `arr`, comparing it to `target`. If a match is found, the algorithm returns the index of the element. If no match is found, the algorithm returns -1.
+
+For example, if we have the array `[4, 2, 3, 1]` and we want to search for the value `3`, the algorithm will iterate over the array and find a match at index `2`. It will then return `2`.
+
+Linear search has a time complexity of O(n), where n is the number of elements in the array. It is best used for small arrays or unsorted arrays. For larger or sorted arrays, binary search is a more efficient algorithm.
+
+<h2>Binary search</h2>
+
+Binary search is a more efficient searching algorithm than linear search, with a time complexity of O(log n) for sorted arrays. It works by repeatedly dividing the search interval in half, until the target value is found or the search interval is empty.
+
+Here is an implementation of binary search in Java:
+
+<pre>
+public static int binarySearch(int[] arr, int target) {
+    int left = 0;
+    int right = arr.length - 1;
+
+    while (left <= right) {
+        int mid = (left + right) / 2;
+
+        if (arr[mid] == target) {
+            return mid;
+        }
+
+        if (arr[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    return -1;
+}</pre>
+
+In this implementation, `arr` is the sorted array to be searched, and `target` is the value to search for. The algorithm initializes two pointers, `left` and `right`, to the beginning and end of the array, respectively. It then repeatedly divides the search interval in half, updating the pointers as necessary, until the target value is found or the search interval is empty.
+
+For example, if we have the sorted array `[1, 2, 3, 4]` and we want to search for the value `3`, the algorithm will start by setting `left` to `0` and `right` to `3`. It will then calculate the midpoint, which is `1`. Since the value at the midpoint is less than the target value, the algorithm updates `left` to `mid + 1`, which is `2`. It then calculates the new midpoint, which is `3`. Since the value at the midpoint is equal to the target value, the algorithm returns `3`.
+
+If the target value is not found, the algorithm will eventually exhaust the search interval and return -1.
+
+It is important to note that binary search only works on sorted arrays. If the array is not sorted, it must be sorted first before binary search can be used.
+
 		</div>
  
 		<script src="scripts/notes.js"></script>

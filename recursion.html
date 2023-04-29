@@ -43,6 +43,49 @@
 		<div class="main-container">
 			<h1>[comp sci] / recursion</h1>
 			
+			Recursion is a process in which a method calls itself repeatedly until a particular condition is met. In Java, recursion is a useful technique that can be used to solve various problems.
+
+<h2>Example 1: Factorial of a Number</h2>
+
+The factorial of a number is the product of all positive integers less than or equal to that number. The factorial of 0 is 1. The factorial of a number n can be calculated using the following formula:
+
+<pre>
+n! = n*(n-1)*(n-2)*...*3*2*1</pre>
+
+The following code shows how to calculate the factorial of a number using recursion in Java:
+
+<pre>
+public static int factorial(int n) {
+    if (n == 0) {
+        return 1;
+    } else {
+        return n * factorial(n-1);
+    }
+}</pre>
+
+In the above code, the <c>factorial()</c> method calls itself with <c>n-1</c> until <c>n</c> becomes 0. When <c>n</c> becomes 0, the recursion stops and the final result is returned.
+
+<h2>Example 2: Fibonacci</h2>
+
+The Fibonacci series is a series of numbers in which each number is the sum of the two preceding numbers. The first two numbers in the series are 0 and 1. The Fibonacci series can be calculated using the following formula:
+
+<pre>
+Fib(n) = Fib(n-1) + Fib(n-2)</pre>
+
+The following code shows how to calculate the Fibonacci series using recursion in Java:
+
+<pre>
+public static int fibonacci(int n) {
+    if (n <= 1) {
+        return n;
+    } else {
+        return fibonacci(n-1) + fibonacci(n-2);
+    }
+}</pre>
+
+In the above code, the <c>fibonacci()</c> method calls itself with <c>n-1</c> and <c>n-2</c> until <c>n</c> becomes 1 or 0. When <c>n</c> becomes 1 or 0, the recursion stops and the final result is returned.
+
+Recursion can be a powerful tool in solving complex problems in Java. However, it is important to use it carefully to avoid infinite loops and stack overflows.
 		</div>
  
 		<script src="scripts/notes.js"></script>
