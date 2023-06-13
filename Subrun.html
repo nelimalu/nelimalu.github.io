@@ -7,9 +7,12 @@
 		<title>Luka Jovanovic - School</title>
 
 		<link rel="stylesheet" href="./styles/navbar.css">
-		<link rel="stylesheet" href="./styles/notes.css">
+		<link rel="stylesheet" href="./styles/subrun.css">
 	</head>
-	<body>
+	<body id="body">
+		<div id="background-video"></div>
+		<div id="background-overlay"></div>
+
 		<!-- NAVBAR -->
 		<div class="nav-container">
 			<div class="brand">
@@ -44,11 +47,94 @@
 			</div>
 		</div>
 
-		<div class="main-container">
+		<div class="cta-container">
+			<div>
+				<div class="title-upper">
+					<t><t class="bracket">[</t> <t class="isp-project">ISP PROJECT</t> <t class="bracket">]</t></t>
+				</div>
+				<div class="title">
+					<t><t class="sub-colour">SUB</t><t id="run-urb" class="run-colour">RUN</t></t>
+				</div>
+				<div class="title-lower">
+					<t>Vaughan Collective © Luka Jovanovic, Brian Song</t>
+				</div>
+			</div>
+		</div>
+		<div class="down-arrow"></div>
+
+		<div id="content">
+			<div class="info-container">
+				<div class="info">
+					<div class="info-title">
+						Issues in Urban Development
+					</div>
+					<div class="info-text-container">
+						<div class="info-text">
+							In many North American cities, transportation is very difficult without a car. For children in their early to mid teens, this is an especially prominent issue as they cannot legally drive. Due to bad urban planning over the past half century, nearly all public services revolve around cars, especially for people living in the suburbs. The nearest store is often 15 minutes away by car, which is over an hour long walk. This offers a few alternatives, such as biking and public transit. However, since infrastructure in these areas is built around cars, there are rarely ever safe bike lanes, and since everyone owns a car, the nearest bus stop is probably a 15 minute walk away and only comes once every 45 minutes. 
+						</div>
+					</div>
+				</div>
+				<div id="urban-dev-image" class="info-image-container">
+					<div class="image-container">
+						<img class="info-image" src="assets/images/car2.png">
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="info-container">
+				<div id="what-is-subrun-image" class="info-image-container2">
+					<div class="image-container">
+						<img class="info-image2" src="assets/images/mainscreen.png">
+					</div>
+				</div>
+				<div class="info">
+					<div class="info-title info-right">
+						What is Subrun?
+					</div>
+					<div class="info-text-container">
+						<div class="info-text">
+							Subrun is a game built for kids aged 10-15 years old to learn about the problems built into their neighbourhoods that are directly dis-servicing them. It also educates them on road safety and the most efficient ways to travel. The game is split into three parts: the learning level, the maze level, and the escape room level. The learning level begins by offering basic information on the issues in car dependent suburbs, and your options for travel as a kid living in this neighbourhood. The maze room then introduces the player to three small minigames with a set goal, allowing them to learn the controls of the game and the quirks of each individual minigame. The escape room expands on the maze room, this time with infinite levels and a harder difficulty.
+						</div>
+					</div>
+				</div>
+				
+			</div>
+
+
+
+			<div class="info-container">
+				<div class="info">
+					<div class="info-title">
+						Difficulties & Contribution
+					</div>
+					<div class="info-text-container">
+						<div class="info-text">
+							While working on this project, we encountered many difficulties. In the beginning, due to our choice to make our game open-world, we ran into many collision issues because the obstacles were moving into the player, and not the expected player moving into obstacle. We also ran into issues with sprite loading, and had to create our own sprite class to load, rasterize, and scale images for us. Beyond that, work on this project went smoothly. My personal contribution to this project is mainly the assets, having draw about 80%.  I also wrote most of the minigames, as well as the dialogue system used to communicate with the NPCs at each minigame in the maze level.
+						</div>
+					</div>
+				</div>
+				<div id="contribution-image" class="info-image-container3">
+					<div class="image-container">
+						<img class="info-image3" src="assets/images/busgame.png">
+					</div>
+				</div>
+			</div>
+
 
 		</div>
-		
-		<script src="scripts/notes.js"></script>
+
+		<div class="bibliography">
+			References<br><br>
+Crook, A. (n.d.). Very superstitious: How fact-free parenting policies Rob our kids of independence. 5 Kids 1 Condo. <a href="https://5kids1condo.com/very-superstitious-how-fact-free-parenting-policies-rob-our-kids-of-independence/">https://5kids1condo.com/very-superstitious-how-fact-free-parenting-policies-rob-our-kids-of-independence/</a><br>
+
+Drivers are killing more pedestrians in Canada every year. Here's why: Michael's essay | CBC radio. (2019, February 1). CBC. <a href="https://www.cbc.ca/radio/sunday/the-sunday-edition-for-february-3-2019-1.4997146/drivers-are-killing-more-pedestrians-in-canada-every-year-here-s-why-michael-s-essay-1.4998615</">https://www.cbc.ca/radio/sunday/the-sunday-edition-for-february-3-2019-1.4997146/drivers-are-killing-more-pedestrians-in-canada-every-year-here-s-why-michael-s-essay-1.4998615</a><br>
+
+Not Just Bikes. (2022, June 6). Why We Won't Raise Our Kids in Suburbia. YouTube. <a href="https://www.youtube.com/watch?v=oHlpmxLTxpw">https://www.youtube.com/watch?v=oHlpmxLTxpw</a>
+		</div>
+
+		<script src="scripts/subrun.js"></script>
 		<script src="scripts/navbar.js"></script>
 	</body>
 </html>
