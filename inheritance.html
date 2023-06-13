@@ -35,6 +35,10 @@
 				</div>
 				<div class="nav-button"  onmouseleave="navExit(this)" onmouseenter="navEnter(this)">
 					<p class="nav-number">04</p>
+					<a class="nav-link" href="Subrun.html">// ISP</a>
+				</div>
+				<div class="nav-button"  onmouseleave="navExit(this)" onmouseenter="navEnter(this)">
+					<p class="nav-number">05</p>
 					<a class="nav-link" href="contact.html">// contact</a>
 				</div>
 			</div>
@@ -269,6 +273,150 @@ public class Student extends Person {
 			    <br>this means that <c>super()</c> is just running the constructor of the superclass
 			    <br>and this makes sense in context, because we’re passing in <c>name</c> to <c>super(name)</c> because <c>name</c> is a parameter of the <c>Person()</c> constructor, and not <c>Student()</c>
 			</p>
+
+			<h2>Polymorphism</h2>
+
+polymorphism is the ability for an object to take on many forms
+<br>in java, this often means that a subclass can be treated as a superclass
+<br>let’s look at an example
+
+<pre>
+public class Animal {
+	public void makeSound() {
+		System.out.println("generic animal sound");
+	}
+}</pre>
+
+<pre>
+public class Cat extends Animal {
+	public void makeSound() {
+		System.out.println("meow");
+	}
+}</pre>
+
+<pre>
+public class Dog extends Animal {
+	public void makeSound() {
+		System.out.println("bark");
+	}
+}</pre>
+
+here we have three classes, <c>Animal</c>, <c>Cat</c>, and <c>Dog</c>
+<br><c>Cat</c> and <c>Dog</c> both <c>extend</c> <c>Animal</c>
+<br>this means that they have all of <c>Animal</c>’s methods and parameters
+<br>notice that <c>Cat</c> and <c>Dog</c> both have their own <c>makeSound()</c> methods
+<br>let’s look at what happens when we treat a <c>Cat</c> and <c>Dog</c> as an <c>Animal</c>
+
+<pre>
+public class Driver {
+	public static void main(String[] args) {
+
+		Animal[] animals = new Animal[2];
+		animals[0] = new Cat();
+		animals[1] = new Dog();
+
+		for (Animal a : animals) {
+			a.makeSound();
+		}
+
+		/*
+		OUTPUT
+
+		meow
+		bark
+		*/
+
+	}
+}</pre>
+
+in this example, we create an array of <c>Animal</c>s, and add a <c>Cat</c> and a <c>Dog</c> to it
+<br>then we loop through the array and run the <c>makeSound()</c> method of each <c>Animal</c>
+<br>even though <c>Cat</c> and <c>Dog</c> both have their own <c>makeSound()</c> method, they are still able to run the <c>makeSound()</c> method of their superclass (<c>Animal</c>)
+<br>this is because they still have the method, they just overrode it with their own implementation
+<br>the important thing to understand here is that we were able to treat a <c>Cat</c> and <c>Dog</c> as an <c>Animal</c>, because they extend it
+
+		<h2>Interfaces</h2>
+
+an interface is like a class, but it only has method signatures
+<br>this means that an interface is a list of methods that a class that implements the interface *must* have
+<br>interfaces are useful because they allow you to write code that depends on certain methods existing, without worrying about the implementation
+<br>this is because with interfaces, you only care that a certain method does exist, you don’t care how it does what it does
+<br>this is useful because it allows you to build your code in a modular way
+<br>for example, if you’re building a game, and you want to have different Player classes (like <c>HumanPlayer</c>, <c>ComputerPlayer</c>, <c>NetworkPlayer</c>), you can write code that only refers to the <c>Player</c> interface, and not the specific implementation
+<br>this means that you can add new Player classes easily, without having to rewrite any of the code that uses the <c>Player</c> interface
+<br>here’s an example of an interface:
+
+<pre>
+public interface Shape {
+    public double getArea();
+    public double getPerimeter();
+}</pre>
+
+this is an interface for a <c>Shape</c>
+<br>any class that implements this interface *must* have a <c>getArea()</c> and a <c>getPerimeter()</c> method
+<br>here’s an example of a class that implements the <c>Shape</c> interface
+
+<pre>
+public class Rectangle implements Shape {
+    private double width;
+    private double height;
+
+    public Rectangle(double w, double h) {
+        width = w;
+        height = h;
+    }
+
+    public double getArea() {
+        return width * height;
+    }
+
+    public double getPerimeter() {
+        return 2 * (width + height);
+    }
+}</pre>
+
+this is a <c>Rectangle</c> class that implements the <c>Shape</c> interface
+<br>notice that the class has a <c>getArea()</c> and a <c>getPerimeter()</c> method, just like the interface requires
+<br>this means that any code that uses the <c>Shape</c> interface can also use the <c>Rectangle</c> class
+<br>here’s another example of a class that implements the <c>Shape</c> interface
+
+<pre>
+public class Circle implements Shape {
+    private double radius;
+
+    public Circle(double r) {
+        radius = r;
+    }
+
+    public double getArea() {
+        return Math.PI * radius * radius;
+    }
+
+    public double getPerimeter() {
+        return 2 * Math.PI * radius;
+    }
+}</pre>
+
+this is a <c>Circle</c> class that implements the <c>Shape</c> interface
+<br>just like the <c>Rectangle</c> class, it has a <c>getArea()</c> and a <c>getPerimeter()</c> method
+<br>this means that any code that uses the <c>Shape</c> interface can also use the <c>Circle</c> class
+<br>here’s an example of code that uses the <c>Shape</c> interface
+
+<pre>
+public static void main(String[] args) {
+    Shape[] shapes = new Shape[2];
+    shapes[0] = new Rectangle(5, 10);
+    shapes[1] = new Circle(3);
+
+    for (Shape s : shapes) {
+        System.out.println("Area: " + s.getArea() + ", Perimeter: " + s.getPerimeter());
+    }
+}</pre>
+
+this code creates an array of <c>Shape</c> objects, and adds a <c>Rectangle</c> and a <c>Circle</c> to it
+<br>then it loops through the array, and prints out the area and perimeter of each shape
+<br>notice that the code doesn’t care *how* the area and perimeter are calculated, it only cares *that* the methods exist
+<br>this means that if you add a new class that implements the <c>Shape</c> interface, the code will still work, without having to change it
 
 		</div>
  

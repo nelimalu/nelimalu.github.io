@@ -4,27 +4,24 @@
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <link rel="icon" href="./assets/images/logo.ico" type="image/ico">
-		<title>Luka Jovanovic - Contact</title>
+		<title>Luka Jovanovic - School</title>
 
 		<link rel="stylesheet" href="./styles/navbar.css">
-		<link rel="stylesheet" href="./styles/contact.css">
+		<link rel="stylesheet" href="./styles/notes.css">
 	</head>
 	<body>
-		<canvas id="background"></canvas>
+		<!-- NAVBAR -->
+		<div class="nav-container">
+			<div class="brand">
+				<span>
+					<span class="brand-brackets">[</span>
+					<a class="brand-link" href="index.html">jovanovic</a>
+					<span class="brand-brackets">]</span>
+				</span>
+			</div>
+			<div class="navbar">
 
-		<div class="blur">
-			<!-- NAVBAR -->
-			<div class="nav-container">
-				<div class="brand">
-					<span>
-						<span class="brand-brackets">[</span>
-						<a class="brand-link" href="index.html">jovanovic</a>
-						<span class="brand-brackets">]</span>
-					</span>
-				</div>
-				<div class="navbar">
-
-					<div class="nav-button" onmouseleave="navExit(this)" onmouseenter="navEnter(this)">
+				<div class="nav-button" onmouseleave="navExit(this)" onmouseenter="navEnter(this)">
 					<p class="nav-number">01</p>
 					<a class="nav-link" href="index.html">// home</a>
 				</div>
@@ -44,27 +41,14 @@
 					<p class="nav-number">05</p>
 					<a class="nav-link" href="contact.html">// contact</a>
 				</div>
-				</div>
-			</div>
-
-			<div id="main-container">
-				<div id="title">
-					Hello 👋 What's your name?
-				</div>
-
-				<div id="input-area">
-					<input type='text' class="input-text" id="input" autocomplete="off" placeholder="John Smith...">
-				</div>
-
-				<div class="buttons-container">
-					<button class="button disable" id="prev" onclick="prev()"><div>⬅</div></button>
-					<button class="button" id="next" onclick="next()"><div>➡</div></button>
-				</div>
 			</div>
 		</div>
 
-		<script src="scripts/contact.js"></script>
-		<script src="scripts/contactBackground.js"></script>
+		<div class="main-container">
+
+		</div>
+		
+		<script src="scripts/notes.js"></script>
 		<script src="scripts/navbar.js"></script>
 	</body>
 </html>
