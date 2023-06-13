@@ -116,7 +116,6 @@ window.addEventListener("optimizedScroll", function(){
 	translate = "translateX(" + translateamount + "%) ";
 	rotate = "rotate(" + (window.pageYOffset / 50) + "deg)";
 
-	console.log(translateamount)
 	thirdItem.style.transform = translate + rotate;
 
 	if (window.pageYOffset > 1600 && window.pageYOffset < 2300) {
